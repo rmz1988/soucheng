@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--象牙白-->
+    <color name="ivory">#FFFFF0</color>
+    <color name="dark_gray">#333333</color>
+    <color name="light_gray">#cccccc</color>
+</resources>
