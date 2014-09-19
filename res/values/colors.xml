@@ -4,4 +4,6 @@
     <color name="ivory">#FFFFF0</color>
     <color name="dark_gray">#333333</color>
     <color name="light_gray">#cccccc</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#ff26d329</color>
 </resources>
