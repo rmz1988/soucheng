@@ -5,4 +5,9 @@
     <string name="cancel">取消</string>
     <string name="no_sd_card">未检测到SD卡，请插入SD卡后重启应用！</string>
     <string name="warn">警告</string>
+
+    <string name="home_btn_text">首页</string>
+    <string name="shop_btn_text">商城</string>
+    <string name="his_btn_text">购买历史</string>
+    <string name="more_btn_text">更多</string>
 </resources>
