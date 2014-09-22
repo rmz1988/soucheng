@@ -3,7 +3,7 @@
           package="com.soucheng.activity"
           android:versionCode="1"
           android:versionName="1.0">
-    <uses-sdk android:targetSdkVersion="19"/>
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="19"/>
     <application android:label="@string/app_name" android:icon="@drawable/logo"
                  android:name="com.soucheng.application.MainApplication"
                  android:theme="@android:style/Theme.Light.NoTitleBar">
@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".MainActivity"/>
 
     </application>
 
