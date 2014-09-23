@@ -12,22 +12,26 @@
             android:layout_height="220dp">
     </android.support.v4.view.ViewPager>
 
-    <LinearLayout android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:gravity="center"
-                  android:paddingTop="5dp"
-                  android:paddingBottom="20dp">
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp">
+
         <FrameLayout
                 android:id="@+id/potFrame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center">
+
             <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="horizontal">
+
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -36,6 +40,7 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp"
                         android:layout_marginRight="6dp"/>
+
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -44,6 +49,7 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp"
                         android:layout_marginRight="6dp"/>
+
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -52,6 +58,7 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginBottom="1dp"
                         android:layout_marginRight="6dp"/>
+
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -61,11 +68,101 @@
                         android:layout_marginBottom="1dp"
                         android:layout_marginRight="6dp"/>
             </LinearLayout>
-            <ImageView android:id="@+id/selectedPot"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:src="@drawable/dark_gray_dot"/>
+
+            <ImageView
+                    android:id="@+id/selectedPot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dark_gray_dot"/>
         </FrameLayout>
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/home_item_bg">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="18dp"
+                android:text="@string/account_balance"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10dp"/>
+
+        <TextView
+                android:id="@+id/balanceView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:text="0.00元"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical|right"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/home_item_bg">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="18dp"
+                android:text="@string/income_immediate"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10dp"/>
+
+        <TextView
+                android:id="@+id/incomeView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:text="0.00元"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical|right"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/home_item_bg">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="16dp"
+                android:text="@string/invite_friend_tip"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10dp"/>
+
+        <Button
+                android:id="@+id/inviteFriendBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/invite_friend"
+                android:textSize="20dp"
+                android:background="@drawable/home_btn_bg"/>
+    </LinearLayout>
 </LinearLayout>
