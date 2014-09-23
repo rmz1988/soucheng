@@ -1,9 +1,8 @@
 package com.soucheng.view;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -22,7 +21,6 @@ import java.util.List;
 public class HomeViewLoader extends ViewLoader {
 
 	private ViewPager adViewPager;
-	private FrameLayout potFrame;
 	private ImageView selectedPot;
 
 	public HomeViewLoader(Context context, View view) {
@@ -32,7 +30,6 @@ public class HomeViewLoader extends ViewLoader {
 	@Override
 	public void load() {
 		adViewPager = (ViewPager) view.findViewById(R.id.adPageView);
-		potFrame = (FrameLayout) view.findViewById(R.id.potFrame);
 		selectedPot = (ImageView) view.findViewById(R.id.selectedPot);
 
 		//加载广告图片
@@ -77,19 +74,89 @@ public class HomeViewLoader extends ViewLoader {
 		adViewPager.setAdapter(new ViewPagerAdapter(viewList));
 		adViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
+			private int lastMarginLeft = -1;
+			private int lastValue = -1;
+			private float lastPercent = 0.0f;
+			private boolean isLeft;
+			private boolean isRight;
+			private boolean pageChange;
+
 			@Override
 			public void onPageScrolled(int i, float v, int i2) {
+				if (i2 != 0) {
+					if (i2 > lastValue) {//左滑
+						isLeft = true;
+						isRight = false;
+					} else if (i2 < lastValue) {//右滑
+						isLeft = false;
+						isRight = true;
+					}
 
+					lastValue = i2;
+				}
+
+				/*if (v != 0.0f) {
+					FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) selectedPot.getLayoutParams();
+					if (isLeft) {
+						layoutParams.setMargins(layoutParams.leftMargin + (int) (38 * Math.abs(v - lastPercent)),
+								layoutParams.topMargin,
+								layoutParams.rightMargin, layoutParams.bottomMargin);
+					} else if (isRight) {
+						layoutParams.setMargins(layoutParams.leftMargin - (int) (38 * Math.abs(v - lastPercent)),
+								layoutParams.topMargin,
+								layoutParams.rightMargin, layoutParams.bottomMargin);
+					}
+					System.out.println(v);
+					selectedPot.setLayoutParams(layoutParams);
+
+					lastPercent = v;
+				}*/
 			}
 
 			@Override
 			public void onPageSelected(int position) {
-
+				//pageChange = true;
+				FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) selectedPot.getLayoutParams();
+				if (isLeft) {
+					layoutParams
+							.setMargins(layoutParams.leftMargin + 38, layoutParams.topMargin, layoutParams.rightMargin,
+									layoutParams.bottomMargin);
+				} else if (isRight) {
+					layoutParams
+							.setMargins(layoutParams.leftMargin - 38, layoutParams.topMargin, layoutParams.rightMargin,
+									layoutParams.bottomMargin);
+				}
+				selectedPot.setLayoutParams(layoutParams);
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int i) {
+				/*FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) selectedPot.getLayoutParams();
+				if (i == 1 && lastMarginLeft == -1) {
+					lastMarginLeft = layoutParams.leftMargin;
+				}
 
+				if (i == 0) {
+					if (pageChange) {
+						if (isLeft) {
+							layoutParams
+									.setMargins(lastMarginLeft + 38, layoutParams.topMargin, layoutParams.rightMargin,
+											layoutParams.bottomMargin);
+						} else if (isRight) {
+							layoutParams
+									.setMargins(lastMarginLeft - 38, layoutParams.topMargin, layoutParams.rightMargin,
+											layoutParams.bottomMargin);
+						}
+					} else {
+						layoutParams.setMargins(lastMarginLeft, layoutParams.topMargin, layoutParams.rightMargin,
+								layoutParams.bottomMargin);
+					}
+					selectedPot.setLayoutParams(layoutParams);
+
+					pageChange = false;
+					lastMarginLeft = -1;
+					isLeft = isRight = false;
+				}*/
 			}
 		});
 	}
