@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingTop="5dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="30dp">
 
         <FrameLayout
                 android:id="@+id/potFrame"
@@ -99,12 +99,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20dp"
+                android:textSize="22dp"
                 android:text="0.00元"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:paddingRight="10dp"
-                android:gravity="center_vertical|right"/>
+                android:gravity="center_vertical|right"
+                android:textColor="@color/green"/>
     </LinearLayout>
 
     <LinearLayout
@@ -129,12 +130,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="20dp"
+                android:textSize="22dp"
                 android:text="0.00元"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:paddingRight="10dp"
-                android:gravity="center_vertical|right"/>
+                android:gravity="center_vertical|right"
+                android:textColor="@color/green"/>
     </LinearLayout>
 
     <LinearLayout
@@ -144,6 +146,7 @@
             android:background="@drawable/home_item_bg">
 
         <TextView
+                android:id="@+id/inviteTipView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"

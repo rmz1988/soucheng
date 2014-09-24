@@ -4,6 +4,7 @@
     <color name="ivory">#FFFFF0</color>
     <color name="dark_gray">#333333</color>
     <color name="light_gray">#cccccc</color>
+    <color name="nav_btn_color">#eeeeee</color>
     <color name="white">#ffffff</color>
     <color name="green">#26d329</color>
     <color name="dark_green">#ff27ba2a</color>

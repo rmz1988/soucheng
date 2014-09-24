@@ -65,10 +65,10 @@ public class MainActivity extends Activity {
 		shopBtn.setNormalBackground(R.drawable.image_btn_normal);
 		hisBtn.setNormalBackground(R.drawable.image_btn_normal);
 		moreBtn.setNormalBackground(R.drawable.image_btn_normal);
-		homeBtn.setNormalColor(getResources().getColor(R.color.light_gray));
-		shopBtn.setNormalColor(getResources().getColor(R.color.light_gray));
-		hisBtn.setNormalColor(getResources().getColor(R.color.light_gray));
-		moreBtn.setNormalColor(getResources().getColor(R.color.light_gray));
+		homeBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
+		shopBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
+		hisBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
+		moreBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
 		homeBtn.setNormalImageSource(R.drawable.home_normal);
 		shopBtn.setNormalImageSource(R.drawable.shop_normal);
 		hisBtn.setNormalImageSource(R.drawable.his_normal);

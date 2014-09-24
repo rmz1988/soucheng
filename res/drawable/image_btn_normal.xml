@@ -4,13 +4,13 @@
     <!-- 边框颜色值 -->
     <item>
         <shape>
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/nav_btn_color"/>
         </shape>
     </item>
     <!-- 主体背景颜色值 -->
     <item android:bottom="3dp">
         <shape>
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/nav_btn_color"/>
 
             <padding android:bottom="5dp"
                      android:left="5dp"

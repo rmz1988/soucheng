@@ -15,4 +15,21 @@
     <string name="invite_friend_tip">邀请好友使用搜城\n各得2元</string>
     <string name="account_balance">账户可用余额</string>
     <string name="income_immediate">即将获得收入</string>
+
+    <string name="goods1">商品1</string>
+    <string name="goods2">商品2</string>
+    <string name="goods3">商品3</string>
+    <string name="goods4">商品4</string>
+    <string name="goods5">商品5</string>
+    <string name="goods6">商品6</string>
+    <string name="no_goods">暂无商品</string>
+    <string name="not_buy_goods">您还没有购买商品</string>
+
+    <string name="my_account">我的账号</string>
+    <string name="task_manage">任务管理</string>
+    <string name="set">设置</string>
+    <string name="suggest">意见反馈</string>
+    <string name="question">常见问题</string>
+    <string name="upgrade">检查更新</string>
+    <string name="about">关于搜城</string>
 </resources>
