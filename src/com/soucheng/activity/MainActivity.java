@@ -1,6 +1,8 @@
 package com.soucheng.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.GestureDetector;

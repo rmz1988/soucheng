@@ -6,8 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import com.soucheng.vo.Address;
 import com.soucheng.vo.Config;
 import com.soucheng.vo.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 数据库适配器
@@ -99,13 +103,15 @@ public class DbAdapter {
 	public Config getConfig() {
 		Cursor cursor = db.query(DbConstants.TABLE_CONFIG,
 				new String[]{DbConstants.COLUMN_CONFIG_ID, DbConstants.COLUMN_CONFIG_FIRST_OPEN,
-						DbConstants.COLUMN_CONFIG_LOGIN_USER}, null, null, null, null, null);
+						DbConstants.COLUMN_CONFIG_LOGIN_USER, DbConstants.COLUMN_CONFIG_OPEN_LOCATION}, null, null,
+				null, null, null);
 		Config config = null;
 		if (cursor.moveToNext()) {
 			config = new Config();
 			config.setId(cursor.getInt(cursor.getColumnIndex(DbConstants.COLUMN_CONFIG_ID)));
 			config.setFirstOpen(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_CONFIG_FIRST_OPEN)));
 			config.setLoginUsername(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_CONFIG_LOGIN_USER)));
+			config.setOpenLocation(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_CONFIG_OPEN_LOCATION)));
 		}
 		cursor.close();
 
@@ -121,7 +127,62 @@ public class DbAdapter {
 		ContentValues values = new ContentValues();
 		values.put(DbConstants.COLUMN_CONFIG_FIRST_OPEN, config.getFirstOpen());
 		values.put(DbConstants.COLUMN_CONFIG_LOGIN_USER, config.getLoginUsername());
+		values.put(DbConstants.COLUMN_CONFIG_OPEN_LOCATION, config.getOpenLocation());
 		db.update(DbConstants.TABLE_CONFIG, values, "_id = " + config.getId(), null);
+	}
+
+	/**
+	 * 添加地址
+	 */
+	public void saveAddress(Address address) {
+		ContentValues values = new ContentValues();
+		values.put(DbConstants.COLUMN_ADDRESS_NAME, address.getName());
+		values.put(DbConstants.COLUMN_ADDRESS_PROVINCE, address.getProvince());
+		values.put(DbConstants.COLUMN_ADDRESS_CITY, address.getCity());
+		values.put(DbConstants.COLUMN_ADDRESS_LATITUDE, address.getLatitude());
+		values.put(DbConstants.COLUMN_ADDRESS_LONGITUDE, address.getLongitude());
+		values.put(DbConstants.COLUMN_ADDRESS_DETAIL, address.getDetail());
+		values.put(DbConstants.COLUMN_ADDRESS_CAN_NOTIFY, address.getCanNotify());
+		db.insert(DbConstants.TABLE_ADDRESS, null, values);
+	}
+
+	/**
+	 * 查询地址列表
+	 */
+	public List<Address> queryAddressList() {
+		Cursor cursor = db.query(DbConstants.TABLE_ADDRESS,
+				new String[]{DbConstants.COLUMN_ADDRESS_ID, DbConstants.COLUMN_ADDRESS_NAME,
+						DbConstants.COLUMN_ADDRESS_PROVINCE, DbConstants.COLUMN_ADDRESS_CITY,
+						DbConstants.COLUMN_ADDRESS_LATITUDE, DbConstants.COLUMN_ADDRESS_LONGITUDE,
+						DbConstants.COLUMN_ADDRESS_DETAIL, DbConstants.COLUMN_ADDRESS_CAN_NOTIFY}, null, null,
+				null, null, null);
+		List<Address> addressList = new ArrayList<>();
+		Address address;
+		while (cursor.moveToNext()) {
+			address = new Address();
+			address.setId(cursor.getInt(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_ID)));
+			address.setName(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_NAME)));
+			address.setProvince(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_PROVINCE)));
+			address.setCity(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_CITY)));
+			address.setLatitude(cursor.getDouble(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_LATITUDE)));
+			address.setLongitude(cursor.getDouble(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_LONGITUDE)));
+			address.setDetail(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_DETAIL)));
+			address.setCanNotify(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_ADDRESS_CAN_NOTIFY)));
+
+			addressList.add(address);
+		}
+		cursor.close();
+
+		return addressList;
+	}
+
+	/**
+	 * 删除地址
+	 *
+	 * @param id id
+	 */
+	public void deleteAddress(int id) {
+		db.delete(DbConstants.TABLE_ADDRESS, "_id = " + id, null);
 	}
 
 	/**
@@ -167,10 +228,13 @@ public class DbAdapter {
 			db.execSQL(DbConstants.CREATE_TABLE_USER);
 			db.execSQL(DbConstants.CREATE_TABLE_CONFIG);
 			db.execSQL(DbConstants.INSERT_CONFIG);
+			db.execSQL(DbConstants.CREATE_TABLE_ADDRESS);
 		}
 
 		private void dropTables(SQLiteDatabase db) {
 			db.execSQL(DbConstants.DROP_TABLE_USER);
+			db.execSQL(DbConstants.DROP_TABLE_CONFIG);
+			db.execSQL(DbConstants.DROP_TABLE_ADDRESS);
 		}
 	}
 

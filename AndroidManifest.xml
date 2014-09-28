@@ -15,6 +15,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".SetActivity"/>
+        <activity android:name=".AddressShowActivity"/>
+        <activity android:name=".AddressAddActivity"/>
 
     </application>
 

@@ -32,4 +32,13 @@
     <string name="question">常见问题</string>
     <string name="upgrade">检查更新</string>
     <string name="about">关于搜城</string>
+
+    <string name="back_icon">&lt;&lt;</string>
+    <string name="open_location_notify">启用位置通知</string>
+
+    <string name="query_addr">查看地址</string>
+    <string name="add_addr">添加地址</string>
+    <string name="open">启动</string>
+    <string name="close">关闭</string>
+    <string name="search">搜索</string>
 </resources>

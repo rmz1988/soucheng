@@ -14,9 +14,13 @@ public class Config implements Serializable {
 	public static final String FIRST_OPEN = "1";
 	public static final String NOT_FIRST_OPEN = "0";
 
+	public static final String LOCATION_OPEN = "1";
+	public static final String LOCATION_CLOSE = "0";
+
 	private int id;
 	private String firstOpen;
 	private String loginUsername;
+	private String OpenLocation;
 
 	/**
 	 * 是否第一次打开程序
@@ -51,5 +55,13 @@ public class Config implements Serializable {
 
 	public void setFirstOpen(String firstOpen) {
 		this.firstOpen = firstOpen;
+	}
+
+	public String getOpenLocation() {
+		return OpenLocation;
+	}
+
+	public void setOpenLocation(String openLocation) {
+		OpenLocation = openLocation;
 	}
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/dark_gray">
+
+        <TextView
+                android:id="@+id/backView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:layout_marginLeft="5dp"
+                android:text="@string/back_icon"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_weight="1.5"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/set"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_weight="7.7"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+        <LinearLayout android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:background="@drawable/more_btn_bg">
+
+            <TextView android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="5"
+                      android:text="@string/open_location_notify"
+                      android:textSize="18sp"
+                      android:paddingLeft="20dp"
+                    />
+            <Switch android:id="@+id/locationOpenBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:paddingRight="20dp"
+                    android:checked="true"
+                    android:textOn="@string/open"
+                    android:textOff="@string/close"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/addrBtnArea"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:background="@drawable/more_btn_bg">
+            <Button android:id="@+id/queryAddrBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/query_addr"/>
+            <Button android:id="@+id/addAddrBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/add_addr"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

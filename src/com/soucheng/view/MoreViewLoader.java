@@ -1,9 +1,11 @@
 package com.soucheng.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import com.soucheng.activity.R;
+import com.soucheng.activity.SetActivity;
 
 /**
  * @author lichen
@@ -52,7 +54,8 @@ public class MoreViewLoader extends ViewLoader {
 
 			@Override
 			public void onClick(View v) {
-
+				Intent intent = new Intent(context, SetActivity.class);
+				context.startActivity(intent);
 			}
 		});
 		suggestBtn.setOnClickListener(new View.OnClickListener() {
