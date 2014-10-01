@@ -15,8 +15,9 @@ public final class DbConstants {
 	public static final String COLUMN_USER_ID = "_id";
 	public static final String COLUMN_USER_USERNAME = "USERNAME";
 	public static final String COLUMN_USER_PASSWORD = "PASSWORD";
+    public static final String COLUMN_USER_GOLD = "GOLD";
 	public static final String CREATE_TABLE_USER =
-			"CREATE TABLE USER(_id integer primary key autoincrement,USERNAME text not null,PASSWORD text not null)";
+			"CREATE TABLE USER(_id integer primary key autoincrement,USERNAME text not null,PASSWORD text not null,GOLD integer)";
 	public static final String DROP_TABLE_USER = "DROP TABLE IF EXISTS USER";
 
 	//配置表，字段名，创建sql，删除sql,插入基本数据

@@ -51,7 +51,7 @@ public class StartActivity extends Activity {
 				case MSG_FIRST_LOGIN:
 				case MSG_NOT_LOGIN:
 				case MSG_HAS_LOGIN:
-					Intent intent = new Intent(StartActivity.this, MainActivity.class);
+					Intent intent = new Intent(StartActivity.this, WelcomeActivity.class);
 					startActivity(intent);
 					finish();
 					break;

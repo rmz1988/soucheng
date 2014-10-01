@@ -1,23 +1,14 @@
 package com.soucheng.activity;
 
 import android.app.Activity;
-import android.content.Context;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ViewFlipper;
+import android.widget.Button;
 import com.soucheng.activity.adapter.ViewPagerAdapter;
-import com.soucheng.view.HisViewLoader;
-import com.soucheng.view.HomeViewLoader;
-import com.soucheng.view.MoreViewLoader;
-import com.soucheng.view.ShopViewLoader;
-import com.soucheng.view.ViewLoader;
-import com.soucheng.widget.ImageTextButton;
-import com.soucheng.widget.ImageTextButtonManager;
+import com.soucheng.view.*;
+import com.soucheng.widget.ButtonManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,20 +19,22 @@ import java.util.List;
 public class MainActivity extends Activity {
 
 	private static final int HOME_VIEW_INDEX = 0;
-	private static final int SHOP_VIEW_INDEX = 1;
-	private static final int HIS_VIEW_INDEX = 2;
-	private static final int MORE_VIEW_INDEX = 3;
+	private static final int REAL_ESTATE_VIEW_INDEX = 1;
+	private static final int READ_VIEW_INDEX = 2;
+	private static final int BEHIND_VIEW_INDEX = 3;
+	private static final int MORE_VIEW_INDEX = 4;
 
-	private ImageTextButton homeBtn;
-	private ImageTextButton shopBtn;
-	private ImageTextButton hisBtn;
-	private ImageTextButton moreBtn;
+	private Button homeBtn;
+	private Button realEstateBtn;
+	private Button readBtn;
+	private Button behindBtn;
+	private Button moreBtn;
 
 	private ViewPager pageView;
 
-	private ImageTextButtonManager btnManager;
+	private ButtonManager btnManager;
 
-	private ViewLoader homeViewLoader, shopViewLoader, hisViewLoader, moreViewLoader;
+	private ViewLoader homeViewLoader, realEstateViewLoader, readViewLoader, behindViewLoader,moreViewLoader;
 
 	/**
 	 * Called when the activity is first created.
@@ -52,111 +45,67 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 
 		//初始化导航按钮组件
-		initImageTextButton();
+		initButton();
 		//初始化子页面
 		initPageView();
 	}
 
-	private void initImageTextButton() {
-		homeBtn = (ImageTextButton) findViewById(R.id.homeBtn);
-		shopBtn = (ImageTextButton) findViewById(R.id.shopBtn);
-		hisBtn = (ImageTextButton) findViewById(R.id.hisBtn);
-		moreBtn = (ImageTextButton) findViewById(R.id.moreBtn);
-
-		homeBtn.setNormalBackground(R.drawable.image_btn_normal);
-		shopBtn.setNormalBackground(R.drawable.image_btn_normal);
-		hisBtn.setNormalBackground(R.drawable.image_btn_normal);
-		moreBtn.setNormalBackground(R.drawable.image_btn_normal);
-		homeBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
-		shopBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
-		hisBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
-		moreBtn.setNormalColor(getResources().getColor(R.color.dark_gray));
-		homeBtn.setNormalImageSource(R.drawable.home_normal);
-		shopBtn.setNormalImageSource(R.drawable.shop_normal);
-		hisBtn.setNormalImageSource(R.drawable.his_normal);
-		moreBtn.setNormalImageSource(R.drawable.more_normal);
-		homeBtn.setSelectedBackground(R.drawable.image_btn_selected);
-		shopBtn.setSelectedBackground(R.drawable.image_btn_selected);
-		hisBtn.setSelectedBackground(R.drawable.image_btn_selected);
-		moreBtn.setSelectedBackground(R.drawable.image_btn_selected);
-		homeBtn.setSelectedColor(getResources().getColor(R.color.green));
-		shopBtn.setSelectedColor(getResources().getColor(R.color.green));
-		hisBtn.setSelectedColor(getResources().getColor(R.color.green));
-		moreBtn.setSelectedColor(getResources().getColor(R.color.green));
-		homeBtn.setSelectedImageSource(R.drawable.home_selected);
-		shopBtn.setSelectedImageSource(R.drawable.shop_selected);
-		hisBtn.setSelectedImageSource(R.drawable.his_selected);
-		moreBtn.setSelectedImageSource(R.drawable.more_selected);
-
-		homeBtn.setText(R.string.home_btn_text);
-		shopBtn.setText(R.string.shop_btn_text);
-		hisBtn.setText(R.string.his_btn_text);
-		moreBtn.setText(R.string.more_btn_text);
-
-		homeBtn.setSort(1);
-		shopBtn.setSort(2);
-		hisBtn.setSort(3);
-		moreBtn.setSort(4);
+	private void initButton() {
+		homeBtn = (Button) findViewById(R.id.homeBtn);
+		realEstateBtn = (Button) findViewById(R.id.realEstateBtn);
+		readBtn = (Button) findViewById(R.id.readBtn);
+		behindBtn = (Button) findViewById(R.id.behindBtn);
+		moreBtn = (Button) findViewById(R.id.moreBtn);
 
 		homeBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				//setFlipperAnimation(R.id.homeBtn);
 				btnManager.selected(R.id.homeBtn);
 				pageView.setCurrentItem(HOME_VIEW_INDEX);
 			}
 		});
-		shopBtn.setOnClickListener(new View.OnClickListener() {
+        realEstateBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				//setFlipperAnimation(R.id.shopBtn);
-				btnManager.selected(R.id.shopBtn);
-				pageView.setCurrentItem(SHOP_VIEW_INDEX);
+				btnManager.selected(R.id.realEstateBtn);
+				pageView.setCurrentItem(REAL_ESTATE_VIEW_INDEX);
 			}
 		});
-		hisBtn.setOnClickListener(new View.OnClickListener() {
+        readBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				//setFlipperAnimation(R.id.hisBtn);
-				btnManager.selected(R.id.hisBtn);
-				pageView.setCurrentItem(HIS_VIEW_INDEX);
+				btnManager.selected(R.id.readBtn);
+				pageView.setCurrentItem(READ_VIEW_INDEX);
+			}
+		});
+        behindBtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				btnManager.selected(R.id.behindBtn);
+				pageView.setCurrentItem(BEHIND_VIEW_INDEX);
 			}
 		});
 		moreBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				//setFlipperAnimation(R.id.moreBtn);
 				btnManager.selected(R.id.moreBtn);
 				pageView.setCurrentItem(MORE_VIEW_INDEX);
 			}
 		});
 
-		btnManager = new ImageTextButtonManager();
+		btnManager = new ButtonManager(this);
 		btnManager.addButton(homeBtn);
-		btnManager.addButton(shopBtn);
-		btnManager.addButton(hisBtn);
+		btnManager.addButton(realEstateBtn);
+		btnManager.addButton(readBtn);
+		btnManager.addButton(behindBtn);
 		btnManager.addButton(moreBtn);
 		btnManager.selected(R.id.homeBtn);
 	}
-
-	/**
-	 * 设置ViewFlipper的动画
-	 *
-	 * @param btnId 按钮id
-	 */
-	/*private void setFlipperAnimation(int btnId) {
-		if (btnManager.isShowFrontPage(btnId)) {
-			pageView.setInAnimation(this, R.anim.left_in);
-			pageView.setOutAnimation(this, R.anim.right_out);
-		} else {
-			pageView.setInAnimation(this, R.anim.right_in);
-			pageView.setOutAnimation(this, R.anim.left_out);
-		}
-	}*/
 
 	/**
 	 * 初始化子页面
@@ -165,17 +114,20 @@ public class MainActivity extends Activity {
 		pageView = (ViewPager) findViewById(R.id.pageView);
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View homeView = inflater.inflate(R.layout.home, null);
-		View shopView = inflater.inflate(R.layout.shop, null);
-		View hisView = inflater.inflate(R.layout.his, null);
+		View realEstateView = inflater.inflate(R.layout.real_estate, null);
+		View readView = inflater.inflate(R.layout.read, null);
+		View behindView = inflater.inflate(R.layout.beind, null);
 		View moreView = inflater.inflate(R.layout.more, null);
 		btnManager.addViewButton(homeView.getId(), homeBtn);
-		btnManager.addViewButton(shopView.getId(), shopBtn);
-		btnManager.addViewButton(hisView.getId(), hisBtn);
+		btnManager.addViewButton(realEstateView.getId(), realEstateBtn);
+		btnManager.addViewButton(readView.getId(), readBtn);
+		btnManager.addViewButton(behindView.getId(), behindBtn);
 		btnManager.addViewButton(moreView.getId(), moreBtn);
 		final List<View> viewList = new ArrayList<>();
 		viewList.add(homeView);
-		viewList.add(shopView);
-		viewList.add(hisView);
+		viewList.add(realEstateView);
+		viewList.add(readView);
+		viewList.add(behindView);
 		viewList.add(moreView);
 		pageView.setAdapter(new ViewPagerAdapter(viewList));
 		pageView.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -196,12 +148,14 @@ public class MainActivity extends Activity {
 		});
 
 		homeViewLoader = new HomeViewLoader(this, homeView);
-		shopViewLoader = new ShopViewLoader(this, shopView);
-		hisViewLoader = new HisViewLoader(this, hisView);
+		realEstateViewLoader = new RealEstateViewLoader(this, realEstateView);
+		readViewLoader = new ReadViewLoader(this, readView);
+		behindViewLoader = new BehindViewLoader(this, behindView);
 		moreViewLoader = new MoreViewLoader(this, moreView);
 		homeViewLoader.load();
-		shopViewLoader.load();
-		hisViewLoader.load();
+        realEstateViewLoader.load();
+        readViewLoader.load();
+        behindViewLoader.load();
 		moreViewLoader.load();
 	}
 

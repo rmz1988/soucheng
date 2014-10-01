@@ -56,6 +56,7 @@ public class DbAdapter {
 		ContentValues values = new ContentValues();
 		values.put(DbConstants.COLUMN_USER_USERNAME, user.getUsername());
 		values.put(DbConstants.COLUMN_USER_PASSWORD, user.getPassword());
+        values.put(DbConstants.COLUMN_USER_GOLD,user.getGold());
 		db.insert(DbConstants.TABLE_USER, null, values);
 	}
 
@@ -67,7 +68,7 @@ public class DbAdapter {
 	public User getUser(String username) {
 		Cursor cursor = db.query(DbConstants.TABLE_USER,
 				new String[]{DbConstants.COLUMN_USER_ID, DbConstants.COLUMN_USER_USERNAME,
-						DbConstants.COLUMN_USER_PASSWORD}, "USERNAME = ?",
+						DbConstants.COLUMN_USER_PASSWORD,DbConstants.COLUMN_USER_GOLD}, "USERNAME = ?",
 				new String[]{username}, null, null, null);
 		if (cursor == null) {
 			return null;
@@ -79,6 +80,7 @@ public class DbAdapter {
 			user.setId(cursor.getInt(cursor.getColumnIndex(DbConstants.COLUMN_USER_ID)));
 			user.setUsername(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_USER_USERNAME)));
 			user.setPassword(cursor.getString(cursor.getColumnIndex(DbConstants.COLUMN_USER_PASSWORD)));
+			user.setGold(cursor.getInt(cursor.getColumnIndex(DbConstants.COLUMN_USER_GOLD)));
 		}
 		cursor.close();
 
@@ -94,6 +96,7 @@ public class DbAdapter {
 		ContentValues values = new ContentValues();
 		values.put(DbConstants.COLUMN_USER_USERNAME, user.getUsername());
 		values.put(DbConstants.COLUMN_USER_PASSWORD, user.getPassword());
+        values.put(DbConstants.COLUMN_USER_GOLD,user.getGold());
 		db.update(DbConstants.TABLE_USER, values, "_id = " + user.getId(), null);
 	}
 

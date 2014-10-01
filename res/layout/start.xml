@@ -8,15 +8,8 @@
               android:gravity="center"
               android:background="@color/ivory">
     <ImageView android:id="@+id/logoImageView"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@drawable/soucheng"/>
-    <TextView
-            android:id="@+id/loginText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:layout_marginTop="20dp"
-            android:textSize="40sp"
-            android:textColor="@color/dark_gray"/>
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:src="@drawable/start"
+            android:scaleType="fitXY"/>
 </LinearLayout>

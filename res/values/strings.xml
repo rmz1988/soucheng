@@ -6,10 +6,11 @@
     <string name="no_sd_card">未检测到SD卡，请插入SD卡后重启应用！</string>
     <string name="warn">警告</string>
 
-    <string name="home_btn_text">首页</string>
-    <string name="shop_btn_text">商城</string>
-    <string name="his_btn_text">购买历史</string>
-    <string name="more_btn_text">更多</string>
+    <string name="home_btn">首页</string>
+    <string name="real_estate_btn">地产</string>
+    <string name="read_btn">悦读</string>
+    <string name="behind_btn">身边</string>
+    <string name="more_btn">更多</string>
 
     <string name="invite_friend">邀请好友</string>
     <string name="invite_friend_tip">邀请好友使用搜城\n各得2元</string>
@@ -41,4 +42,53 @@
     <string name="open">启动</string>
     <string name="close">关闭</string>
     <string name="search">搜索</string>
+
+    <string name="welcome1_title">指点江山</string>
+    <string name="welcome2_title">一起赚钱</string>
+    <string name="welcome3_title">城迷特权</string>
+    <string name="welcome4_title">大爱无疆</string>
+    <string name="welcome1">我们受够了蔑视的眼神\n
+        厌倦了被动的忍耐\n
+        从这一刻起,我们要挑战霸权\n
+        拥抱移动互联,全民搜城,共赢美好未来\n
+        搜城,我们的时代来了
+    </string>
+    <string name="welcome2">屏保赚钱\n
+        看广告赚钱,玩游戏赚钱\n
+        看资讯赚钱,读小说赚钱\n
+        推荐商家赚钱,邀请好友赚钱 ……\n
+        搜城,我们一起赚钱
+    </string>
+    <string name="welcome3">被一次次的垃圾传播骚扰\n
+        被一次次的虚假宣传欺骗\n
+        ……\n
+        对！无需再忍，城迷享受看信息返现金、兑换商品，还独享折扣特权！\n
+        你可以被动选择商家，更有权主动推荐商家，更有封杀特权！\n
+        搜城,我们享受特权
+    </string>
+    <string name="welcome4">“假捐门”、“炒作门”、“骗捐门”……\n
+        神圣的公益已经被恶行践踏的一塌糊涂\n
+        大众已经变得麻木？空留感叹？\n
+        不，我们就是不一样，即使是一块钱，我们是一片赤诚之心！\n
+        美丽中国梦 ，全民公益行！\n
+    </string>
+    <string name="enter">进入搜城</string>
+    <string name="share">分享</string>
+
+    <string name="my_income">我的收益\n（城币）</string>
+    <string name="exchange_money">折合现金\n（人民币）</string>
+    <string name="exchange">商城\n兑换</string>
+    <string name="donate">公益捐助\n/提现</string>
+
+    <string name="broadcast1">欢迎使用搜城！</string>
+    <string name="broadcast2">用搜城一起来赚钱！</string>
+    <string name="read_home">悦读首页</string>
+    <string name="loading">加载中...</string>
+    <string name="soucheng_asset">搜城地产</string>
+
+    <string-array name="locations">
+        <item>济南</item>
+    </string-array>
+
+    <string name="query_hint">楼盘名/地名/开发商等</string>
 </resources>
