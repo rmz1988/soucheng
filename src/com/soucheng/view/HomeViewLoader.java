@@ -12,8 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.soucheng.activity.R;
 import com.soucheng.activity.adapter.ViewPagerAdapter;
+import com.soucheng.application.MainApplication;
 import com.soucheng.db.DbAdapter;
+import com.soucheng.dialog.InviteFriendDialog;
+import com.soucheng.vo.User;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,9 +57,12 @@ public class HomeViewLoader extends ViewLoader {
         }
     };
 
+    private MainApplication application;
+
     public HomeViewLoader(Context context, View view) {
         super(context, view);
         dbAdapter = new DbAdapter(context);
+        application = (MainApplication) context.getApplicationContext();
     }
 
     @Override
@@ -66,6 +73,25 @@ public class HomeViewLoader extends ViewLoader {
         exchangeBtn = (Button) view.findViewById(R.id.exchangeBtn);
         donateBtn = (Button) view.findViewById(R.id.donateBtn);
         inviteFriendBtn = (Button) view.findViewById(R.id.inviteFriendBtn);
+        exchangeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        donateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        inviteFriendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InviteFriendDialog dialog = new InviteFriendDialog(context);
+                dialog.show();
+            }
+        });
 
         loadMoneyInfo();
 
@@ -79,6 +105,11 @@ public class HomeViewLoader extends ViewLoader {
         goldView = (TextView) view.findViewById(R.id.goldView);
         moneyView = (TextView) view.findViewById(R.id.moneyView);
 
+        User user = application.getLoginUser();
+        if (user != null) {
+            goldView.setText(String.valueOf(user.getGold()) + "枚");
+            moneyView.setText(new DecimalFormat("0.00").format(Double.parseDouble(String.valueOf(user.getGold())) / 100) + "元");
+        }
     }
 
     private void loadBroadcast() {

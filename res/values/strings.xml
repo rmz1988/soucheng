@@ -35,6 +35,7 @@
     <string name="about">关于搜城</string>
 
     <string name="back_icon">&lt;&lt;</string>
+    <string name="back">返回</string>
     <string name="open_location_notify">启用位置通知</string>
 
     <string name="query_addr">查看地址</string>
@@ -91,4 +92,62 @@
     </string-array>
 
     <string name="query_hint">楼盘名/地名/开发商等</string>
+
+    <string name="house">住宅</string>
+    <string name="apartment">公寓</string>
+    <string name="commercial">商业</string>
+    <string name="work">办公</string>
+    <string name="rent">出租</string>
+
+    <string name="exit_tip">再次点击退出</string>
+    <string name="current_location">当前位置：</string>
+
+    <string name="eat">吃货</string>
+    <string name="house_behind">住哪</string>
+    <string name="xiuxian">玩么</string>
+    <string name="gongyi">公益</string>
+    <string name="play">游戏</string>
+    <string name="shequ">社区</string>
+    <string name="jiazheng">家政</string>
+    <string name="shop">商城</string>
+
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    <string name="username_tip">输入手机号码</string>
+    <string name="password_tip">输入密码</string>
+    <string name="password_confirm_tip">再次输入密码</string>
+    <string name="sms_tip">输入短信验证码</string>
+
+    <string name="forget_passwrod">忘记密码？</string>
+    <string name="third_login">第三方账号登录</string>
+
+    <string name="send_sms">发送验证码</string>
+    <string name="send_sms_success">验证码已发送</string>
+
+    <string name="username_warn">用户名不能为空</string>
+    <string name="username_repeat">该用户名已注册</string>
+    <string name="password_warn">密码不能为空</string>
+    <string name="confirm_pwd_warn">密码确认不能为空</string>
+    <string name="sms_warn">短信验证码不能为空</string>
+    <string name="pwd_diff_warn">确认密码与密码不一致</string>
+    <string name="regist_success">注册成功</string>
+    <string name="login_failed">用户名或密码不正确</string>
+
+    <string name="invite_qq">发送到QQ</string>
+    <string name="invite_weixin">发送到微信朋友圈</string>
+    <string name="invite_weibo">发送到新浪微博</string>
+
+    <string name="about_soucheng">关于搜城</string>
+    <string name="current_user">当前用户：</string>
+    <string name="logout">退出登录</string>
+
+    <string name="not_add_address">您尚未添加地址</string>
+    <string name="no_target_address">未找到指定地址</string>
+    <string name="address_search_tip">输入要搜索的地址</string>
+    <string name="confirm_add_address">确定添加该地址？</string>
+    <string name="confirm_delete_address">确认删除该地址？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="add_address_success">添加地址成功</string>
+    <string name="delete_address_success">删除地址成功</string>
 </resources>

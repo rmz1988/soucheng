@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.soucheng.activity.adapter.ViewPagerAdapter;
+import com.soucheng.application.MainApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +23,13 @@ public class WelcomeActivity extends Activity {
     private ViewPager viewPager;
     private ImageView[] dotViews;
     private Button enterBtn;
+    private MainApplication application;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
+        application = (MainApplication) getApplication();
 
         viewPager = (ViewPager) findViewById(R.id.welcomeView);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -45,7 +48,7 @@ public class WelcomeActivity extends Activity {
         enterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, application.getLoginUser() != null ? MainActivity.class : LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 finish();

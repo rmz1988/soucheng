@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:padding="10dp">
+    <TextView android:id="@+id/inviteQQ"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/more_btn_selector"
+              android:text="@string/invite_qq"
+              android:textSize="18dp"
+              android:padding="10dp"
+              android:textColor="@color/dark_gray"/>
+    <TextView android:id="@+id/inviteWeixin"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/more_btn_selector"
+              android:text="@string/invite_weixin"
+              android:textSize="18dp"
+              android:padding="10dp"
+              android:textColor="@color/dark_gray"/>
+    <TextView android:id="@+id/inviteWeibo"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/more_btn_selector"
+              android:text="@string/invite_weibo"
+              android:textSize="18dp"
+              android:padding="10dp"
+              android:textColor="@color/dark_gray"/>
+</LinearLayout>

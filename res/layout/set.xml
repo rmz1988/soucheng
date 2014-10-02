@@ -3,82 +3,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/white">
     <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/dark_gray">
+            android:background="@color/orange">
 
-        <TextView
-                android:id="@+id/backView"
+        <ImageView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:src="@drawable/logo2"
                 android:layout_marginLeft="5dp"
-                android:text="@string/back_icon"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"/>
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:padding="5dp"
-                android:layout_weight="1.5"/>
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/set"
-                android:textSize="16sp"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:padding="5dp"
-                android:layout_weight="7.7"/>
+                android:layout_weight="7"
+                android:gravity="center"/>
+        <Button android:id="@+id/backBtn"
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:background="@android:color/transparent"
+                android:layout_gravity="center_vertical"/>
     </LinearLayout>
-    <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@color/white"
-            android:orientation="vertical">
-        <LinearLayout android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:background="@drawable/more_btn_bg">
 
-            <TextView android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="5"
-                      android:text="@string/open_location_notify"
-                      android:textSize="18sp"
-                      android:paddingLeft="20dp"
-                    />
-            <Switch android:id="@+id/locationOpenBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:paddingRight="20dp"
-                    android:checked="true"
-                    android:textOn="@string/open"
-                    android:textOff="@string/close"/>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/addrBtnArea"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-                      android:background="@drawable/more_btn_bg">
-            <Button android:id="@+id/queryAddrBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="@string/query_addr"/>
-            <Button android:id="@+id/addAddrBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="@string/add_addr"/>
-        </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/moreView"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:paddingLeft="15dp"
+                  android:paddingRight="15dp"
+                  android:background="@color/white">
+        <Button android:id="@+id/addressShowBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/query_addr"
+                android:gravity="left|center_vertical"
+                android:textSize="16dp"
+                android:background="@drawable/more_btn_selector"
+                android:textColor="@color/dark_gray"/>
+        <Button android:id="@+id/addressAddBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_addr"
+                android:gravity="left|center_vertical"
+                android:textSize="16dp"
+                android:background="@drawable/more_btn_selector"
+                android:textColor="@color/dark_gray"/>
     </LinearLayout>
 </LinearLayout>

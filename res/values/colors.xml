@@ -4,6 +4,7 @@
     <color name="ivory">#FFFFF0</color>
     <color name="dark_gray">#333333</color>
     <color name="light_gray">#cccccc</color>
+    <color name="trans_light_gray">#99cccccc</color>
     <color name="nav_btn_color">#eeeeee</color>
     <color name="white">#ffffff</color>
     <color name="green">#26d329</color>
@@ -12,4 +13,14 @@
     <color name="light_orange">#fffe9700</color>
     <color name="dark_orange">#ffff3e00</color>
 
+    <color name="eat">#4572FF</color>
+    <color name="house_behind">#02CB64</color>
+    <color name="xiuxian">#F5C400</color>
+    <color name="gongyi">#FF6586</color>
+    <color name="play">#F05B21</color>
+    <color name="shequ">#8F74FF</color>
+    <color name="jiazheng">#1BBEFF</color>
+    <color name="shop">#F5C400</color>
+
+    <color name="login_regist_btn">#A9A9A9</color>
 </resources>

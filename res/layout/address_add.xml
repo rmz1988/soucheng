@@ -3,40 +3,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/white">
     <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/dark_gray">
+            android:background="@color/orange">
 
-        <TextView
-                android:id="@+id/backView"
+        <ImageView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:src="@drawable/logo2"
                 android:layout_marginLeft="5dp"
-                android:text="@string/back_icon"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"/>
 
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:padding="5dp"
-                android:layout_weight="1.5"/>
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/add_addr"
-                android:textSize="16sp"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:padding="5dp"
-                android:layout_weight="7.7"/>
+                android:layout_weight="7"
+                android:gravity="center"/>
+        <Button android:id="@+id/backBtn"
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:background="@android:color/transparent"
+                android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
     <LinearLayout android:layout_width="fill_parent"
@@ -47,7 +48,9 @@
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_weight="8"
-                  android:layout_gravity="center_vertical"/>
+                  android:layout_gravity="center_vertical"
+                  android:hint="@string/address_search_tip"
+                  android:drawableLeft="@drawable/logo_small"/>
         <Button android:id="@+id/searchBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -57,5 +60,15 @@
     </LinearLayout>
     <ListView android:id="@+id/addressQueryView"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"/>
+              android:layout_height="fill_parent"
+              android:scrollbars="none"/>
+    <TextView
+            android:id="@+id/emptyTip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textColor="@color/dark_gray"
+            android:text="@string/not_add_address"
+            android:gravity="center"
+            android:visibility="gone"/>
 </LinearLayout>

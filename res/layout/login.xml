@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white">
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/orange">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:src="@drawable/logo2"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_weight="7"
+                android:gravity="center"/>
+        <Button android:id="@+id/registBtn"
+                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/regist"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:background="@android:color/transparent"
+                android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:padding="20dp">
+        <TableLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:stretchColumns="*"
+                     android:background="@drawable/login_regist_info"
+                     android:padding="2dp">
+            <TableRow>
+                <EditText android:id="@+id/usernameEdit"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:drawableLeft="@drawable/logo_small"
+                          android:inputType="numberDecimal"
+                          android:hint="@string/username_tip"
+                          android:background="@drawable/top_radius_bg"
+                          android:paddingTop="8dp"
+                          android:paddingBottom="8dp"/>
+            </TableRow>
+            <TableRow android:layout_marginTop="2dp">
+                <EditText android:id="@+id/passwordEdit"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:drawableLeft="@drawable/logo_small"
+                          android:inputType="textPassword"
+                          android:hint="@string/password_tip"
+                          android:background="@drawable/bottom_radius_bg"
+                          android:paddingTop="8dp"
+                          android:paddingBottom="8dp"/>
+            </TableRow>
+        </TableLayout>
+
+        <Button android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textSize="22dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/login_regist_btn_bg"
+                android:layout_marginTop="20dp"/>
+
+        <Button android:id="@+id/findPasswordBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_passwrod"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:textSize="16dp"
+                android:textColor="@color/dark_gray"
+                android:layout_gravity="right"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="40dp"
+                  android:text="@string/third_login"
+                  android:textSize="20dp"
+                  android:textColor="@color/dark_gray"
+                  android:gravity="center"
+                />
+        <TableLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:stretchColumns="*"
+                     android:layout_marginTop="40dp">
+            <TableRow>
+                <ImageButton android:id="@+id/qqLoginBtn"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/qq_login"
+                             android:background="@android:color/transparent"/>
+                <ImageButton android:id="@+id/weixinLoginBtn"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/weixin_login"
+                             android:background="@android:color/transparent"/>
+                <ImageButton android:id="@+id/weiboLoginBtn"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/weibo_login"
+                             android:background="@android:color/transparent"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

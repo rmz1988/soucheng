@@ -14,15 +14,7 @@
             android:text="@string/my_account"
             android:gravity="left|center_vertical"
             android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
-            android:textColor="@color/dark_gray"/>
-    <Button android:id="@+id/taskManageBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/task_manage"
-            android:gravity="left|center_vertical"
-            android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
+            android:background="@drawable/more_btn_selector"
             android:textColor="@color/dark_gray"/>
     <Button android:id="@+id/setBtn"
             android:layout_width="fill_parent"
@@ -30,15 +22,7 @@
             android:text="@string/set"
             android:gravity="left|center_vertical"
             android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
-            android:textColor="@color/dark_gray"/>
-    <Button android:id="@+id/suggestBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/suggest"
-            android:gravity="left|center_vertical"
-            android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
+            android:background="@drawable/more_btn_selector"
             android:textColor="@color/dark_gray"/>
     <Button android:id="@+id/inviteFriendBtn"
             android:layout_width="fill_parent"
@@ -46,15 +30,7 @@
             android:text="@string/invite_friend"
             android:gravity="left|center_vertical"
             android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
-            android:textColor="@color/dark_gray"/>
-    <Button android:id="@+id/questionBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/question"
-            android:gravity="left|center_vertical"
-            android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
+            android:background="@drawable/more_btn_selector"
             android:textColor="@color/dark_gray"/>
     <Button android:id="@+id/upgradeBtn"
             android:layout_width="fill_parent"
@@ -62,7 +38,7 @@
             android:text="@string/upgrade"
             android:gravity="left|center_vertical"
             android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
+            android:background="@drawable/more_btn_selector"
             android:textColor="@color/dark_gray"/>
     <Button android:id="@+id/aboutBtn"
             android:layout_width="fill_parent"
@@ -70,6 +46,6 @@
             android:text="@string/about"
             android:gravity="left|center_vertical"
             android:textSize="16dp"
-            android:background="@drawable/more_btn_bg"
+            android:background="@drawable/more_btn_selector"
             android:textColor="@color/dark_gray"/>
 </LinearLayout>

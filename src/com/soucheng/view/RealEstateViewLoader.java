@@ -2,12 +2,17 @@ package com.soucheng.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.SearchView;
-import android.widget.Spinner;
+import android.view.WindowManager;
+import android.widget.*;
 import com.soucheng.activity.R;
+import com.soucheng.activity.RealEstateDetailActivity;
 import com.soucheng.activity.SearchActivity;
+import com.soucheng.activity.adapter.ViewPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lichen
@@ -16,6 +21,17 @@ public class RealEstateViewLoader extends ViewLoader {
 
     private Spinner locationSpinner;
     private SearchView searchView;
+
+    private ImageButton houseBtn;
+    private ImageButton apartmentBtn;
+    private ImageButton commercialBtn;
+    private ImageButton workBtn;
+    private ImageButton rentBtn;
+
+    private ViewPager buildingViewPager;
+    private ImageView buildingBroadcast;
+
+    private ImageView[] dotViews;
 
     public RealEstateViewLoader(Context context, View view) {
         super(context, view);
@@ -42,6 +58,113 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
+            }
+        });
+
+        initImageBtn();
+        initBuildingView();
+        initBuildingBroadcast();
+
+    }
+
+    private void initImageBtn() {
+        houseBtn = (ImageButton) view.findViewById(R.id.houseBtn);
+        apartmentBtn = (ImageButton) view.findViewById(R.id.apartmentBtn);
+        commercialBtn = (ImageButton) view.findViewById(R.id.commercialBtn);
+        workBtn = (ImageButton) view.findViewById(R.id.workBtn);
+        rentBtn = (ImageButton) view.findViewById(R.id.rentBtn);
+
+        houseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        apartmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        commercialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        workBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        rentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    private void initBuildingView() {
+        buildingViewPager = (ViewPager) view.findViewById(R.id.buildingViewPager);
+        List<View> viewList = new ArrayList<>();
+        ImageView adView1 = new ImageView(context);
+        adView1.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT));
+        adView1.setAdjustViewBounds(true);
+        adView1.setScaleType(ImageView.ScaleType.FIT_XY);
+        adView1.setImageResource(R.drawable.ad1);
+        viewList.add(adView1);
+
+        ImageView adView2 = new ImageView(context);
+        adView2.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT));
+        adView2.setAdjustViewBounds(true);
+        adView2.setScaleType(ImageView.ScaleType.FIT_XY);
+        adView2.setImageResource(R.drawable.ad2);
+        viewList.add(adView2);
+
+        dotViews = new ImageView[]{(ImageView) view.findViewById(R.id.dot1), (ImageView) view.findViewById(R.id.dot2)};
+        dotViews[0].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
+
+        buildingViewPager.setAdapter(new ViewPagerAdapter(viewList));
+        buildingViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i2) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                for (int j = 0; j < dotViews.length; j++) {
+                    if (i == j) {
+                        dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
+                    } else {
+                        dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.light_gray_dot));
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+    }
+
+    private void initBuildingBroadcast() {
+        buildingBroadcast = (ImageView) view.findViewById(R.id.buildingBroadcast);
+        buildingBroadcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                context.startActivity(intent);
             }
         });
     }
