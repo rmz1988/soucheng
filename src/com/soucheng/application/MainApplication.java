@@ -133,7 +133,7 @@ public class MainApplication extends Application {
     public Address getCurrentLocation() {
 
         Address address = new Address();
-        address.setName("无法获取位置信息");
+        address.setDetail("无法获取位置信息");
         if (currentLocation != null) {
             Address addr = queryAddressByLocation(currentLocation.getLatitude(), currentLocation.getLongitude());
             if (addr != null) {

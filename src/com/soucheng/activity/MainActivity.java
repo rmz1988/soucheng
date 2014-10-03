@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.soucheng.activity.adapter.ViewPagerAdapter;
 import com.soucheng.application.MainApplication;
 import com.soucheng.service.LocationService;
+import com.soucheng.service.ScreenLockService;
 import com.soucheng.view.*;
 import com.soucheng.widget.ButtonManager;
 
@@ -51,7 +52,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        startLocationService();
+        startUserService();
         //初始化导航按钮组件
         initButton();
         //初始化子页面
@@ -64,8 +65,11 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
 
-            Intent serviceIntent = new Intent(this, LocationService.class);
-            stopService(serviceIntent);
+            Intent locationServiceIntent = new Intent(this, LocationService.class);
+            stopService(locationServiceIntent);
+            Intent screenLockServiceIntent = new Intent(this, ScreenLockService.class);
+            stopService(screenLockServiceIntent);
+
             finish();
         }
     }
@@ -182,10 +186,14 @@ public class MainActivity extends Activity {
     /**
      * 开启定位服务
      */
-    private void startLocationService() {
+    private void startUserService() {
         application = (MainApplication) getApplication();
         if (!application.isServiceWork("com.soucheng.service.LocationService")) {
             Intent intent = new Intent(this, LocationService.class);
+            startService(intent);
+        }
+        if (!application.isServiceWork("com.soucheng.service.ScreenLockService")) {
+            Intent intent = new Intent(this, ScreenLockService.class);
             startService(intent);
         }
     }
