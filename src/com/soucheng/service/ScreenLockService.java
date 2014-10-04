@@ -31,7 +31,7 @@ public class ScreenLockService extends Service {
     private BroadcastReceiver screenOffReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
+            if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction()) && !application.isPhoneInUse()) {
                 //显示自定义锁屏界面
                 Intent lockIntent = new Intent(ScreenLockService.this, ScreenLockActivity.class);
                 lockIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -73,9 +73,10 @@ public class ScreenLockService extends Service {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         unregisterReceiver(screenOnReceiver);
         unregisterReceiver(screenOffReceiver);
+        stopForeground(true);
+        super.onDestroy();
     }
 
 

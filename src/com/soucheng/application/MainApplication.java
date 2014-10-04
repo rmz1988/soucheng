@@ -6,6 +6,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.location.Geocoder;
 import android.location.Location;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.soucheng.vo.Address;
 import com.soucheng.vo.User;
@@ -159,6 +160,11 @@ public class MainApplication extends Application {
         }
 
         return false;
+    }
+
+    public boolean isPhoneInUse() {
+        TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        return manager.getCallState() != TelephonyManager.CALL_STATE_IDLE;
     }
 
     public void disableKeyguard() {

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.soucheng.application.MainApplication;
 import com.soucheng.db.DbAdapter;
+import com.soucheng.view.LockLayer;
 import com.soucheng.vo.Config;
 import com.soucheng.vo.User;
 
@@ -39,6 +40,9 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
 
     private int deltaX;
     private FrameLayout.LayoutParams sourceLayoutParams;
+    private LockLayer lockLayer;
+
+    private boolean stoneSelected;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,12 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
         getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.screen_lock);
+        View view = LayoutInflater.from(this).inflate(R.layout.screen_lock, null);
+        lockLayer = LockLayer.getInstance(this);
+        lockLayer.setLockView(view);
+        lockLayer.lock();
 
-        init();
+        init(view);
     }
 
     @Override
@@ -64,43 +71,48 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (isStoneSelected(x, y)) {
+                    stoneSelected = true;
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) stone.getLayoutParams();
                     deltaX = x - layoutParams.leftMargin;
                     stone.setVisibility(View.GONE);
                     stonePress.setVisibility(View.VISIBLE);
-                    sourceLayoutParams = (FrameLayout.LayoutParams) stonePress.getLayoutParams();
                 }
+                sourceLayoutParams = (FrameLayout.LayoutParams) stonePress.getLayoutParams();
                 break;
             case MotionEvent.ACTION_MOVE:
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) stonePress.getLayoutParams();
-                layoutParams.leftMargin = x - deltaX;
-                stonePress.setLayoutParams(layoutParams);
+                if (stoneSelected && (x >= ad.getX() || x <= lock.getX())) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) stonePress.getLayoutParams();
+                    layoutParams.leftMargin = x - deltaX;
+                    stonePress.setLayoutParams(layoutParams);
 
-                if (isAdSelected(x, y)) {
-                    adSelect.setVisibility(View.VISIBLE);
-                    stonePress.setVisibility(View.GONE);
+                    if (isAdSelected(x, y)) {
+                        adSelect.setVisibility(View.VISIBLE);
+                        stonePress.setVisibility(View.GONE);
 
-                } else if (isLockSelected(x, y)) {
-                    lockSelect.setVisibility(View.VISIBLE);
-                    stonePress.setVisibility(View.GONE);
-                } else {
-                    adSelect.setVisibility(View.GONE);
-                    lockSelect.setVisibility(View.GONE);
+                    } else if (isLockSelected(x, y)) {
+                        lockSelect.setVisibility(View.VISIBLE);
+                        stonePress.setVisibility(View.GONE);
+                    } else {
+                        adSelect.setVisibility(View.GONE);
+                        lockSelect.setVisibility(View.GONE);
+                    }
                 }
-
                 break;
             case MotionEvent.ACTION_UP:
-                if (isAdSelected(x, y)) {
+                if (isAdSelected(x, y) && stoneSelected) {
                     addGold(adGold);
+                    lockLayer.unlock();
                     finish();
-                } else if (isLockSelected(x, y)) {
+                } else if (isLockSelected(x, y) && stoneSelected) {
                     addGold(lockGold);
+                    lockLayer.unlock();
                     finish();
                 } else {
                     stonePress.setLayoutParams(sourceLayoutParams);
                     stonePress.setVisibility(View.GONE);
                     stone.setVisibility(View.VISIBLE);
                 }
+                stoneSelected = false;
                 break;
         }
 
@@ -132,18 +144,18 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
         return lockX <= x && lockX + lockWidth >= x && lockY <= y && lockY + lockHeight >= y;
     }
 
-    private void init() {
+    private void init(View view) {
         dbAdapter = new DbAdapter(this);
         application = (MainApplication) getApplication();
-        stone = (ImageView) findViewById(R.id.stone);
-        stonePress = (ImageView) findViewById(R.id.stonePress);
-        lock = (ImageView) findViewById(R.id.lock);
-        ad = (ImageView) findViewById(R.id.ad);
-        lockSelect = (ImageView) findViewById(R.id.lockSelect);
-        adSelect = (ImageView) findViewById(R.id.adSelect);
+        stone = (ImageView) view.findViewById(R.id.stone);
+        stonePress = (ImageView) view.findViewById(R.id.stonePress);
+        lock = (ImageView) view.findViewById(R.id.lock);
+        ad = (ImageView) view.findViewById(R.id.ad);
+        lockSelect = (ImageView) view.findViewById(R.id.lockSelect);
+        adSelect = (ImageView) view.findViewById(R.id.adSelect);
 
-        adGoldView = (TextView) findViewById(R.id.adGoldView);
-        lockGoldView = (TextView) findViewById(R.id.lockGoldView);
+        adGoldView = (TextView) view.findViewById(R.id.adGoldView);
+        lockGoldView = (TextView) view.findViewById(R.id.lockGoldView);
 
         Random r = new Random();
         lockGold = r.nextInt(10);
@@ -151,7 +163,7 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
         lockGoldView.setText(lockGold != 0 ? lockGold + "城币" : "");
         adGoldView.setText(adGold != 0 ? adGold + "城币" : "");
 
-        screen = (FrameLayout) findViewById(R.id.screen);
+        screen = (FrameLayout) view.findViewById(R.id.screen);
         screen.setOnTouchListener(this);
     }
 
