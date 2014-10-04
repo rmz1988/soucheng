@@ -49,7 +49,7 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED, FLAG_HOMEKEY_DISPATCHED);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN| WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 
         View view = LayoutInflater.from(this).inflate(R.layout.screen_lock, null);
         lockLayer = LockLayer.getInstance(this);
