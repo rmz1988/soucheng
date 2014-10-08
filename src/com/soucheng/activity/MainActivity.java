@@ -12,6 +12,7 @@ import com.soucheng.application.MainApplication;
 import com.soucheng.service.LocationService;
 import com.soucheng.service.ScreenLockService;
 import com.soucheng.view.*;
+import com.soucheng.vo.MenuIcon;
 import com.soucheng.widget.ButtonManager;
 
 import java.util.ArrayList;
@@ -124,10 +125,15 @@ public class MainActivity extends Activity {
 
         btnManager = new ButtonManager(this);
         btnManager.addButton(homeBtn);
+        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.home_normal), getResources().getDrawable(R.drawable.home_select)));
         btnManager.addButton(realEstateBtn);
+        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.house_normal), getResources().getDrawable(R.drawable.house_select)));
         btnManager.addButton(readBtn);
+        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.read_normal), getResources().getDrawable(R.drawable.read_select)));
         btnManager.addButton(behindBtn);
+        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.behind_normal), getResources().getDrawable(R.drawable.behind_select)));
         btnManager.addButton(moreBtn);
+        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.more_normal), getResources().getDrawable(R.drawable.more_select)));
         btnManager.selected(R.id.homeBtn);
     }
 

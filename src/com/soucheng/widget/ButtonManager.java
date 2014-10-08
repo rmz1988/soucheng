@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 import android.widget.Button;
 import com.soucheng.activity.R;
+import com.soucheng.vo.MenuIcon;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ public class ButtonManager {
 
     private Map<Integer, Button> btnMap = new HashMap<>();
     private Map<Integer, Button> viewBtnMap = new HashMap<>();
+    private Map<Integer, MenuIcon> menuIconMap = new HashMap<>();
 
     private Context context;
 
@@ -33,6 +35,10 @@ public class ButtonManager {
         viewBtnMap.put(viewId, btn);
     }
 
+    public void addButtonImg(int btnId, MenuIcon menuIcon) {
+        menuIconMap.put(btnId, menuIcon);
+    }
+
     public void removeBtn(int id) {
         btnMap.remove(id);
     }
@@ -46,12 +52,14 @@ public class ButtonManager {
         for (Map.Entry<Integer, Button> entry : entrySet) {
             Button btn = entry.getValue();
             if (id == entry.getKey()) {//选中
-                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_selected));
+//                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_selected));
+                btn.setCompoundDrawables(null, menuIconMap.get(id).getSelect(), null, null);
                 btn.setTextColor(context.getResources().getColor(R.color.orange));
                 btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
             } else {
-                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_normal));
-                btn.setTextColor(context.getResources().getColor(R.color.white));
+                btn.setCompoundDrawables(null, menuIconMap.get(id).getNormal(), null, null);
+//                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_normal));
+                btn.setTextColor(context.getResources().getColor(R.color.gray_text));
                 btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
             }
         }

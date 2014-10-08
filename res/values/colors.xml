@@ -23,4 +23,8 @@
     <color name="shop">#F5C400</color>
 
     <color name="login_regist_btn">#A9A9A9</color>
+
+    <color name="gray_main">#3a3c3a</color>
+    <color name="gray_text">#6b6b6b</color>
+    <color name="light_gray_text">#c5c5c5</color>
 </resources>

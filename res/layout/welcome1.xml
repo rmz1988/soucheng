@@ -3,9 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/jiangshan3">
-    <LinearLayout android:layout_width="wrap_content"
+              android:layout_height="match_parent">
+    <!--<LinearLayout android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
                   android:layout_gravity="center_horizontal"
@@ -32,6 +31,11 @@
               android:lineSpacingExtra="20dp"
               android:textColor="@color/white"
               android:paddingLeft="20dp"
-              android:paddingRight="20dp"/>
+              android:paddingRight="20dp"/>-->
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:src="@drawable/zdjs"
+               android:scaleType="fitXY"
+            />
 
 </LinearLayout>
