@@ -104,7 +104,7 @@
                 android:paddingBottom="5dp"
                 android:gravity="center_vertical|left"
                 android:paddingLeft="10dp"
-                android:textColor="@color/orange"/>
+                android:textColor="@color/dark_gray"/>
 
         <TextView
                 android:id="@+id/goldView"
@@ -117,7 +117,7 @@
                 android:paddingBottom="5dp"
                 android:paddingRight="10dp"
                 android:layout_gravity="center_vertical|left"
-                android:textColor="@color/orange"
+                android:textColor="@color/dark_green"
                 />
         <Button
                 android:id="@+id/exchangeBtn"
@@ -128,7 +128,7 @@
                 android:textSize="18dp"
                 android:background="@android:color/transparent"
                 android:text="@string/exchange"
-                android:textColor="@color/orange"/>
+                android:textColor="@color/dark_gray"/>
     </LinearLayout>
 
     <LinearLayout
@@ -148,7 +148,7 @@
                 android:paddingBottom="5dp"
                 android:layout_gravity="center_vertical|left"
                 android:paddingLeft="10dp"
-                android:textColor="@color/orange"/>
+                android:textColor="@color/dark_gray"/>
 
         <TextView
                 android:id="@+id/moneyView"
@@ -161,7 +161,7 @@
                 android:paddingBottom="5dp"
                 android:paddingRight="10dp"
                 android:layout_gravity="center_vertical|left"
-                android:textColor="@color/orange"
+                android:textColor="@color/dark_green"
                 />
         <Button
                 android:id="@+id/donateBtn"
@@ -172,7 +172,7 @@
                 android:textSize="18dp"
                 android:background="@android:color/transparent"
                 android:text="@string/donate"
-                android:textColor="@color/orange"/>
+                android:textColor="@color/dark_gray"/>
     </LinearLayout>
 
     <Button
