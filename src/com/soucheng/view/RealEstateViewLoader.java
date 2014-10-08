@@ -2,6 +2,7 @@ package com.soucheng.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.WindowManager;
@@ -78,6 +79,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com/xf/jn/pu0/");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -85,6 +89,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com/search.d?m=search&type=0&keyword=%B9%AB%D4%A2&city=jn&r=0.7301192109007388");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -92,6 +99,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com/xf/jn/pu2/");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -99,6 +109,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com/xf/jn/pu1/");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -106,6 +119,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com/zf/jn/");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -164,6 +180,9 @@ public class RealEstateViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RealEstateDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url", "http://m.fang.com");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });

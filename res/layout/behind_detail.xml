@@ -4,9 +4,8 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <ImageView
+    <WebView android:id="@+id/behindWebView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/huachuang"
-            android:scaleType="fitXY"/>
+            android:src="@drawable/huachuang"/>
 </LinearLayout>

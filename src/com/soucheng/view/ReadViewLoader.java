@@ -28,7 +28,7 @@ public class ReadViewLoader extends ViewLoader {
         newsView = (WebView) view.findViewById(R.id.newsView);
         newsView.getSettings().setJavaScriptEnabled(true);
         newsView.getSettings().setSupportZoom(true);
-        newsView.setInitialScale(80);
+        newsView.setInitialScale(90);
         newsView.setWebViewClient(new WebViewClient() {
 
             @Override

@@ -2,6 +2,7 @@ package com.soucheng.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -66,6 +67,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.dianping.com/shoplist/22/d/500/c/10/s/s_-1/a.pbf");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -73,6 +77,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.dianping.com/shoplist/22/d/500/c/60/s/s_-1");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -80,6 +87,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.ly.com");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -87,6 +97,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.taobao.com");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -94,6 +107,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://gongyi.163.com");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -101,6 +117,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://bbs.e23.cn");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -108,6 +127,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.6366.com/game/?id=10102104");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
@@ -115,6 +137,9 @@ public class BehindViewLoader extends ViewLoader {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BehindDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://m.dianping.com/shoplist/22/c/195");
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
