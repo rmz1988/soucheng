@@ -10,6 +10,6 @@
     <ImageView android:id="@+id/logoImageView"
                android:layout_width="fill_parent"
                android:layout_height="fill_parent"
-               android:src="@drawable/start"
+               android:src="@drawable/zdjs"
             android:scaleType="fitXY"/>
 </LinearLayout>

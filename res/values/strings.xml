@@ -13,7 +13,7 @@
     <string name="more_btn">更多</string>
 
     <string name="invite_friend">邀请好友</string>
-    <string name="invite_friend_tip">邀请好友使用搜城\n各得2元</string>
+    <string name="invite_friend_tip">邀请好友使用搜城\n各得1元</string>
     <string name="account_balance">账户可用余额</string>
     <string name="income_immediate">即将获得收入</string>
 
@@ -78,8 +78,8 @@
 
     <string name="my_income">我的收益\n（城币）</string>
     <string name="exchange_money">折合现金\n（人民币）</string>
-    <string name="exchange">商城\n兑换</string>
-    <string name="donate">公益捐助\n/提现</string>
+    <string name="exchange">&gt;</string>
+    <string name="donate">&gt;</string>
 
     <string name="broadcast1">欢迎使用搜城！</string>
     <string name="broadcast2">用搜城一起来赚钱！</string>
@@ -95,20 +95,20 @@
 
     <string name="house">住宅</string>
     <string name="apartment">公寓</string>
-    <string name="commercial">商业</string>
-    <string name="work">办公</string>
+    <string name="commercial">商铺</string>
+    <string name="work">写字楼</string>
     <string name="rent">出租</string>
 
     <string name="exit_tip">再次点击退出</string>
     <string name="current_location">当前位置：</string>
 
-    <string name="eat">吃货</string>
-    <string name="house_behind">住哪</string>
-    <string name="xiuxian">玩么</string>
+    <string name="eat">食客</string>
+    <string name="house_behind">宾馆</string>
+    <string name="xiuxian">休闲</string>
     <string name="gongyi">公益</string>
-    <string name="play">游戏</string>
-    <string name="shequ">社区</string>
-    <string name="jiazheng">家政</string>
+    <string name="play">玩家</string>
+    <string name="shequ">城迷</string>
+    <string name="jiazheng">管家</string>
     <string name="shop">商城</string>
 
     <string name="login">登录</string>
@@ -150,4 +150,7 @@
     <string name="no">否</string>
     <string name="add_address_success">添加地址成功</string>
     <string name="delete_address_success">删除地址成功</string>
+    <string name="search_tip">请输入关键词搜索</string>
+
+    <string name="my_chengmi">我的城迷</string>
 </resources>

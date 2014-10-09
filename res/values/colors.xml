@@ -27,4 +27,13 @@
     <color name="gray_main">#3a3c3a</color>
     <color name="gray_text">#6b6b6b</color>
     <color name="light_gray_text">#c5c5c5</color>
+
+    <color name="shike_text">#A6B1AC</color>
+    <color name="binguan_text">#889BA2</color>
+    <color name="shangcheng_text">#D7974B</color>
+    <color name="gongyi_text">#EA7074</color>
+    <color name="chengmi_text">#479FDE</color>
+    <color name="wanjia_text">#D3954B</color>
+    <color name="guanjia_text">#B297C2</color>
+    <color name="xiuxian_text">#80ABD8</color>
 </resources>

@@ -14,7 +14,7 @@
 
         <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:src="@drawable/title"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical|left"/>
@@ -32,7 +32,8 @@
                      android:textColor="@color/white"
                      android:src="@drawable/share"
                      android:background="@android:color/transparent"
-                     android:layout_gravity="center_vertical|right"/>
+                     android:layout_gravity="center_vertical|right"
+                     android:layout_marginRight="10dp"/>
     </FrameLayout>
 
     <LinearLayout android:layout_width="fill_parent"
@@ -51,73 +52,77 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/gray_main"
-                android:paddingTop="10dp">
+                android:background="@color/gray_main">
 
             <Button
                     android:id="@+id/homeBtn"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/home_btn"
                     android:background="@color/gray_main"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/home_normal"
+                    android:padding="10dp"
                     />
             <Button
                     android:id="@+id/realEstateBtn"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/real_estate_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:background="@color/gray_main"
-                    android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/house_normal"
+                    android:padding="10dp"
                     />
             <Button
                     android:id="@+id/readBtn"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/read_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:background="@color/gray_main"
-                    android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/read_normal"
+                    android:padding="10dp"
                     />
             <Button
                     android:id="@+id/behindBtn"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/behind_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
                     android:textSize="18dp"
                     android:background="@color/gray_main"
-                    android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/behind_normal"
+                    android:padding="10dp"
                     />
             <Button
                     android:id="@+id/moreBtn"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/more_btn"
                     android:textSize="18dp"
                     android:background="@color/gray_main"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
-                    android:gravity="center"
+                    android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/more_normal"
+                    android:padding="10dp"
                     />
         </LinearLayout>
     </LinearLayout>

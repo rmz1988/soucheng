@@ -127,13 +127,13 @@ public class MainActivity extends Activity {
         btnManager.addButton(homeBtn);
         btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.home_normal), getResources().getDrawable(R.drawable.home_select)));
         btnManager.addButton(realEstateBtn);
-        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.house_normal), getResources().getDrawable(R.drawable.house_select)));
+        btnManager.addButtonImg(realEstateBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.house_normal), getResources().getDrawable(R.drawable.house_select)));
         btnManager.addButton(readBtn);
-        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.read_normal), getResources().getDrawable(R.drawable.read_select)));
+        btnManager.addButtonImg(readBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.read_normal), getResources().getDrawable(R.drawable.read_select)));
         btnManager.addButton(behindBtn);
-        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.behind_normal), getResources().getDrawable(R.drawable.behind_select)));
+        btnManager.addButtonImg(behindBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.behind_normal), getResources().getDrawable(R.drawable.behind_select)));
         btnManager.addButton(moreBtn);
-        btnManager.addButtonImg(homeBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.more_normal), getResources().getDrawable(R.drawable.more_select)));
+        btnManager.addButtonImg(moreBtn.getId(), new MenuIcon(getResources().getDrawable(R.drawable.more_normal), getResources().getDrawable(R.drawable.more_select)));
         btnManager.selected(R.id.homeBtn);
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.soucheng.activity.BehindDetailActivity;
@@ -15,7 +16,7 @@ import com.soucheng.application.MainApplication;
  */
 public class BehindViewLoader extends ViewLoader {
 
-    private TextView locationView;
+    private EditText locationView;
     private ImageButton flushBtn;
 
     private ImageButton eatBtn;
@@ -41,16 +42,16 @@ public class BehindViewLoader extends ViewLoader {
     }
 
     private void loadCurrentLocation() {
-        locationView = (TextView) view.findViewById(R.id.locationView);
+        locationView = (EditText) view.findViewById(R.id.locationView);
         flushBtn = (ImageButton) view.findViewById(R.id.flushBtn);
 
-        locationView.setText(application.getCurrentLocation().getDetail());
+        /*locationView.setText(application.getCurrentLocation().getDetail());
         flushBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 locationView.setText(application.getCurrentLocation().getDetail());
             }
-        });
+        });*/
     }
 
     private void loadImageButton() {
