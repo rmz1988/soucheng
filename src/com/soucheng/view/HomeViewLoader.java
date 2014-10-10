@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.soucheng.activity.R;
@@ -39,9 +40,10 @@ public class HomeViewLoader extends ViewLoader {
 	private TextView broadcastView;
 	private TextView goldView;
 	private TextView moneyView;
-	private Button exchangeBtn;
-	private Button donateBtn;
-	private Button inviteFriendBtn;
+	private ImageButton exchangeBtn;
+	private ImageButton donateBtn;
+	private ImageButton buyBtn;
+	private ImageButton inviteFriendBtn;
 
 	private int[] broadcastTexts;
 
@@ -75,9 +77,10 @@ public class HomeViewLoader extends ViewLoader {
 		adViewPager = (ViewPager) view.findViewById(R.id.adPageView);
 		selectedPot = (ImageView) view.findViewById(R.id.selectedPot);
 
-		exchangeBtn = (Button) view.findViewById(R.id.exchangeBtn);
-		donateBtn = (Button) view.findViewById(R.id.donateBtn);
-		inviteFriendBtn = (Button) view.findViewById(R.id.inviteFriendBtn);
+		exchangeBtn = (ImageButton) view.findViewById(R.id.exchangeBtn);
+		donateBtn = (ImageButton) view.findViewById(R.id.donateBtn);
+		buyBtn = (ImageButton) view.findViewById(R.id.buyBtn);
+		inviteFriendBtn = (ImageButton) view.findViewById(R.id.inviteFriendBtn);
 		inviteTipView = (TextView) view.findViewById(R.id.inviteTipView);
 		String inviteTip = inviteTipView.getText().toString();
 		SpannableStringBuilder builder = new SpannableStringBuilder(inviteTip);
@@ -87,6 +90,13 @@ public class HomeViewLoader extends ViewLoader {
 		inviteTipView.setText(builder);
 
 		exchangeBtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+			}
+		});
+		buyBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

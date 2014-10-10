@@ -10,6 +10,7 @@ import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import com.soucheng.application.MainApplication;
 import com.soucheng.db.DbAdapter;
 import com.soucheng.file.FileUtils;
@@ -30,7 +31,9 @@ public class StartActivity extends Activity {
 
 	private DbAdapter dbAdapter;
 
-	private Handler handler = new Handler() {
+	private Button enterBtn;
+
+	/*private Handler handler = new Handler() {
 
 		@Override
 		public void handleMessage(Message msg) {
@@ -50,15 +53,21 @@ public class StartActivity extends Activity {
 					break;
 				case MSG_FIRST_LOGIN:
 				case MSG_NOT_LOGIN:
+					Intent loginIntent = new Intent(StartActivity.this, LoginActivity.class);
+					startActivity(loginIntent);
+					overridePendingTransition(R.anim.right_in, R.anim.left_out);
+					finish();
+					break;
 				case MSG_HAS_LOGIN:
-					Intent intent = new Intent(StartActivity.this, WelcomeActivity.class);
-					startActivity(intent);
+					Intent mainIntent = new Intent(StartActivity.this, MainActivity.class);
+					startActivity(mainIntent);
+					overridePendingTransition(R.anim.right_in, R.anim.left_out);
 					finish();
 					break;
 			}
 		}
 	};
-
+*/
 	@Override
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -71,37 +80,82 @@ public class StartActivity extends Activity {
 
 		//初始化参数
 		initParams();
-
+/*
 		new Thread() {
 
 			@Override
 			public void run() {
 				//判断是否有sd卡
-				if (FileUtils.hasSdCard()) {
-					//判断是否第一次打开应用
-					dbAdapter.open();
-					Config config = dbAdapter.getConfig();
-					if (config.isFirstOpen()) {
-						config.setFirstOpen(Config.NOT_FIRST_OPEN);
-						dbAdapter.updateConfig(config);
-						handler.sendEmptyMessageDelayed(MSG_FIRST_LOGIN, 2000L);
-					} else if (config.hasUserLogin()) {//判断是否有用户登录
-						User user = dbAdapter.getUser(config.getLoginUsername());
-						((MainApplication) getApplication()).setLoginUser(user);
-						handler.sendEmptyMessageDelayed(MSG_HAS_LOGIN, 2000L);
-					} else {
-						handler.sendEmptyMessageDelayed(MSG_NOT_LOGIN, 2000L);
-					}
-
-				} else {
-					handler.sendEmptyMessageDelayed(MSG_NO_SD_CARD, 2000L);
-				}
+				checkAppStatus();
 
 			}
-		}.start();
+		}.start();*/
+	}
+
+	/**
+	 * 检查应用当前状态
+	 */
+	private int checkAppStatus() {
+		int appStatus = MSG_NO_SD_CARD;
+
+		if (FileUtils.hasSdCard()) {
+			//判断是否第一次打开应用
+			dbAdapter.open();
+			Config config = dbAdapter.getConfig();
+			if (config.isFirstOpen()) {
+				config.setFirstOpen(Config.NOT_FIRST_OPEN);
+				dbAdapter.updateConfig(config);
+				appStatus = MSG_FIRST_LOGIN;
+			} else if (config.hasUserLogin()) {//判断是否有用户登录
+				User user = dbAdapter.getUser(config.getLoginUsername());
+				((MainApplication) getApplication()).setLoginUser(user);
+				appStatus = MSG_HAS_LOGIN;
+			} else {
+				appStatus = MSG_NOT_LOGIN;
+			}
+
+		}
+
+		return appStatus;
 	}
 
 	private void initParams() {
 		dbAdapter = new DbAdapter(this);
+
+		enterBtn = (Button) findViewById(R.id.enterBtn);
+		enterBtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				switch (checkAppStatus()) {
+					case MSG_NO_SD_CARD:
+						AlertDialog.Builder builder = new AlertDialog.Builder(StartActivity.this);
+						AlertDialog dialog = builder.setTitle(R.string.warn).setMessage(R.string.no_sd_card)
+								.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+										finish();
+									}
+								}).create();
+
+						dialog.show();
+						break;
+					case MSG_FIRST_LOGIN:
+					case MSG_NOT_LOGIN:
+						Intent loginIntent = new Intent(StartActivity.this, LoginActivity.class);
+						startActivity(loginIntent);
+						overridePendingTransition(R.anim.right_in, R.anim.left_out);
+						finish();
+						break;
+					case MSG_HAS_LOGIN:
+						Intent mainIntent = new Intent(StartActivity.this, MainActivity.class);
+						startActivity(mainIntent);
+						overridePendingTransition(R.anim.right_in, R.anim.left_out);
+						finish();
+						break;
+				}
+			}
+		});
 	}
 }

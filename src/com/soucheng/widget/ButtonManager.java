@@ -55,13 +55,11 @@ public class ButtonManager {
 				//                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_selected));
 				btn.setCompoundDrawablesWithIntrinsicBounds(null, menuIconMap.get(id).getSelect(), null, null);
 				btn.setTextColor(context.getResources().getColor(R.color.orange));
-				btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
 			} else {
 				btn.setCompoundDrawablesWithIntrinsicBounds(null, menuIconMap.get(entry.getKey()).getNormal(), null,
 						null);
 				//                btn.setBackground(context.getResources().getDrawable(R.drawable.nav_normal));
 				btn.setTextColor(context.getResources().getColor(R.color.gray_text));
-				btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 			}
 		}
 	}

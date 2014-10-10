@@ -10,23 +10,23 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/gray_main">
+            android:background="@drawable/title_bg">
 
         <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/title"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical|left"/>
 
-        <!-- <TextView
-                 android:layout_width="0dp"
+         <TextView
+                 android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="@string/app_name"
-                 android:textSize="25dp"
+                 android:text="济南"
+                 android:textSize="20dp"
                  android:textColor="@color/white"
-                 android:padding="5dp"
-                 android:layout_weight="7"/>-->
+                 android:layout_marginLeft="80dp"
+                 android:layout_gravity="bottom"/>
         <ImageButton android:layout_height="wrap_content"
                      android:layout_width="wrap_content"
                      android:textColor="@color/white"
@@ -63,10 +63,10 @@
                     android:background="@color/gray_main"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/home_normal"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     />
             <Button
                     android:id="@+id/realEstateBtn"
@@ -76,11 +76,11 @@
                     android:text="@string/real_estate_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:background="@color/gray_main"
                     android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/house_normal"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     />
             <Button
                     android:id="@+id/readBtn"
@@ -90,11 +90,11 @@
                     android:text="@string/read_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:background="@color/gray_main"
                     android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/read_normal"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     />
             <Button
                     android:id="@+id/behindBtn"
@@ -104,11 +104,11 @@
                     android:text="@string/behind_btn"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:background="@color/gray_main"
                     android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/behind_normal"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     />
             <Button
                     android:id="@+id/moreBtn"
@@ -116,13 +116,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/more_btn"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:background="@color/gray_main"
                     android:textColor="@color/light_gray_text"
                     android:textStyle="bold"
                     android:gravity="bottom|center_horizontal"
                     android:drawableTop="@drawable/more_normal"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     />
         </LinearLayout>
     </LinearLayout>

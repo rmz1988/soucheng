@@ -13,7 +13,8 @@
     <string name="more_btn">更多</string>
 
     <string name="invite_friend">邀请好友</string>
-    <string name="invite_friend_tip">邀请好友使用搜城\n各得1元</string>
+    <string name="invite_friend_plus">+邀请好友</string>
+    <string name="invite_friend_tip">邀请好友注册\n搜城各得1元</string>
     <string name="account_balance">账户可用余额</string>
     <string name="income_immediate">即将获得收入</string>
 
@@ -76,8 +77,8 @@
     <string name="enter">进入搜城</string>
     <string name="share">分享</string>
 
-    <string name="my_income">我的收益\n（城币）</string>
-    <string name="exchange_money">折合现金\n（人民币）</string>
+    <string name="my_income">城币余额</string>
+    <string name="exchange_money">现金余额</string>
     <string name="exchange">&gt;</string>
     <string name="donate">&gt;</string>
 
@@ -153,4 +154,5 @@
     <string name="search_tip">请输入关键词搜索</string>
 
     <string name="my_chengmi">我的城迷</string>
+    <string name="recommend">点此推荐精品商家\n可获城币奖励</string>
 </resources>

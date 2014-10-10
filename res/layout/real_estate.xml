@@ -11,33 +11,23 @@
                   android:orientation="horizontal"
                   android:background="@color/orange"
                   android:paddingTop="5dp"
-                  android:paddingBottom="5dp">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/soucheng_asset"
-                android:textSize="18dp"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/white"
-                android:paddingLeft="10dp"
-                android:paddingRight="5dp"/>
-        <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="8"
-                android:background="@color/white"
-                android:queryHint="@string/query_hint"
-                android:imeOptions="actionSearch"
-                android:iconifiedByDefault="true"
-                android:inputType="text"/>
-
-        <Spinner android:id="@+id/locationSpinner"
-                 android:layout_width="0dp"
-                 android:layout_weight="2"
-                 android:layout_height="40dp"
-                 android:background="@color/orange"
-                 android:layout_gravity="center_vertical|right"/>
+                  android:paddingBottom="5dp"
+                  android:gravity="center">
+        <EditText android:id="@+id/searchEdit"
+                  android:layout_width="280dp"
+                  android:layout_height="wrap_content"
+                  android:textSize="18dp"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="@color/gray_text"
+                  android:hint="@string/search_tip"
+                  android:background="@drawable/search_view_bg"
+                  android:drawableRight="@drawable/search"/>
+        <ImageButton android:id="@+id/locationBtn"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/location"
+                     android:background="@android:color/transparent"
+                     android:layout_marginLeft="10dp"/>
     </LinearLayout>
     <TableLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -45,8 +35,8 @@
                  android:paddingLeft="5dp"
                  android:paddingRight="5dp"
                  android:paddingBottom="10dp"
-
-                 android:stretchColumns="*">
+                 android:stretchColumns="*"
+                 android:background="@color/light_gray">
         <TableRow android:layout_width="match_parent"
                   android:layout_height="wrap_content">
             <ImageButton android:id="@+id/houseBtn"
@@ -119,8 +109,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
             android:background="@color/light_gray">
         <FrameLayout android:layout_width="match_parent"
                      android:layout_height="wrap_content"
@@ -164,7 +152,11 @@
                       android:layout_height="0dp"
                       android:layout_weight="1"
                       android:background="@drawable/home_item_bg"
-                      android:padding="5dp">
+                      android:padding="5dp"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginRight="8dp"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="5dp">
             <ImageView android:id="@+id/buildingBroadcast"
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"

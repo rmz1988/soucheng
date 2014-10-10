@@ -15,9 +15,11 @@ import com.soucheng.application.MainApplication;
  * @author lichen
  */
 public class BehindViewLoader extends ViewLoader {
+/*
 
     private EditText locationView;
     private ImageButton flushBtn;
+*/
 
     private ImageButton eatBtn;
     private ImageButton houseBtn;
@@ -42,8 +44,8 @@ public class BehindViewLoader extends ViewLoader {
     }
 
     private void loadCurrentLocation() {
-        locationView = (EditText) view.findViewById(R.id.locationView);
-        flushBtn = (ImageButton) view.findViewById(R.id.flushBtn);
+      /*  locationView = (EditText) view.findViewById(R.id.locationView);
+        flushBtn = (ImageButton) view.findViewById(R.id.flushBtn);*/
 
         /*locationView.setText(application.getCurrentLocation().getDetail());
         flushBtn.setOnClickListener(new View.OnClickListener() {

@@ -20,32 +20,35 @@ import java.util.List;
  */
 public class RealEstateViewLoader extends ViewLoader {
 
-    private Spinner locationSpinner;
-    private SearchView searchView;
+	//    private Spinner locationSpinner;
+	//    private SearchView searchView;
 
-    private ImageButton houseBtn;
-    private ImageButton apartmentBtn;
-    private ImageButton commercialBtn;
-    private ImageButton workBtn;
-    private ImageButton rentBtn;
+	private EditText searchEdit;
+	private ImageButton locationBtn;
 
-    private ViewPager buildingViewPager;
-    private ImageView buildingBroadcast;
+	private ImageButton houseBtn;
+	private ImageButton apartmentBtn;
+	private ImageButton commercialBtn;
+	private ImageButton workBtn;
+	private ImageButton rentBtn;
 
-    private ImageView[] dotViews;
+	private ViewPager buildingViewPager;
+	private ImageView buildingBroadcast;
 
-    public RealEstateViewLoader(Context context, View view) {
-        super(context, view);
-    }
+	private ImageView[] dotViews;
 
-    @Override
-    public void load() {
-        locationSpinner = (Spinner) view.findViewById(R.id.locationSpinner);
+	public RealEstateViewLoader(Context context, View view) {
+		super(context, view);
+	}
+
+	@Override
+	public void load() {
+	   /* locationSpinner = (Spinner) view.findViewById(R.id.locationSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.locations, R.layout.location_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        locationSpinner.setAdapter(adapter);
+        locationSpinner.setAdapter(adapter);*/
 
-        searchView = (SearchView) view.findViewById(R.id.searchView);
+       /* searchView = (SearchView) view.findViewById(R.id.searchView);
         searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -60,132 +63,143 @@ public class RealEstateViewLoader extends ViewLoader {
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
-        });
+        });*/
 
-        initImageBtn();
-        initBuildingView();
-        initBuildingBroadcast();
+		searchEdit = (EditText) view.findViewById(R.id.searchEdit);
+		locationBtn = (ImageButton) view.findViewById(R.id.locationBtn);
 
-    }
+		initImageBtn();
+		initBuildingView();
+		initBuildingBroadcast();
 
-    private void initImageBtn() {
-        houseBtn = (ImageButton) view.findViewById(R.id.houseBtn);
-        apartmentBtn = (ImageButton) view.findViewById(R.id.apartmentBtn);
-        commercialBtn = (ImageButton) view.findViewById(R.id.commercialBtn);
-        workBtn = (ImageButton) view.findViewById(R.id.workBtn);
-        rentBtn = (ImageButton) view.findViewById(R.id.rentBtn);
+	}
 
-        houseBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com/xf/jn/pu0/");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-        apartmentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com/search.d?m=search&type=0&keyword=%B9%AB%D4%A2&city=jn&r=0.7301192109007388");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-        commercialBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com/xf/jn/pu2/");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-        workBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com/xf/jn/pu1/");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-        rentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com/zf/jn/");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-    }
+	private void initImageBtn() {
+		houseBtn = (ImageButton) view.findViewById(R.id.houseBtn);
+		apartmentBtn = (ImageButton) view.findViewById(R.id.apartmentBtn);
+		commercialBtn = (ImageButton) view.findViewById(R.id.commercialBtn);
+		workBtn = (ImageButton) view.findViewById(R.id.workBtn);
+		rentBtn = (ImageButton) view.findViewById(R.id.rentBtn);
 
-    private void initBuildingView() {
-        buildingViewPager = (ViewPager) view.findViewById(R.id.buildingViewPager);
-        List<View> viewList = new ArrayList<>();
-        ImageView adView1 = new ImageView(context);
-        adView1.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT));
-        adView1.setAdjustViewBounds(true);
-        adView1.setScaleType(ImageView.ScaleType.FIT_XY);
-        adView1.setImageResource(R.drawable.ad1);
-        viewList.add(adView1);
+		houseBtn.setOnClickListener(new View.OnClickListener() {
 
-        ImageView adView2 = new ImageView(context);
-        adView2.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT));
-        adView2.setAdjustViewBounds(true);
-        adView2.setScaleType(ImageView.ScaleType.FIT_XY);
-        adView2.setImageResource(R.drawable.ad2);
-        viewList.add(adView2);
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url", "http://m.fang.com/xf/jn/pu0/");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+		apartmentBtn.setOnClickListener(new View.OnClickListener() {
 
-        dotViews = new ImageView[]{(ImageView) view.findViewById(R.id.dot1), (ImageView) view.findViewById(R.id.dot2)};
-        dotViews[0].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url",
+						"http://m.fang.com/search.d?m=search&type=0&keyword=%B9%AB%D4%A2&city=jn&r=0.7301192109007388");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+		commercialBtn.setOnClickListener(new View.OnClickListener() {
 
-        buildingViewPager.setAdapter(new ViewPagerAdapter(viewList));
-        buildingViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i2) {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url", "http://m.fang.com/xf/jn/pu2/");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+		workBtn.setOnClickListener(new View.OnClickListener() {
 
-            }
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url", "http://m.fang.com/xf/jn/pu1/");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+		rentBtn.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onPageSelected(int i) {
-                for (int j = 0; j < dotViews.length; j++) {
-                    if (i == j) {
-                        dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
-                    } else {
-                        dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.light_gray_dot));
-                    }
-                }
-            }
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url", "http://m.fang.com/zf/jn/");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+	}
 
-            @Override
-            public void onPageScrollStateChanged(int i) {
+	private void initBuildingView() {
+		buildingViewPager = (ViewPager) view.findViewById(R.id.buildingViewPager);
+		List<View> viewList = new ArrayList<>();
+		ImageView adView1 = new ImageView(context);
+		adView1.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
+				WindowManager.LayoutParams.MATCH_PARENT));
+		adView1.setAdjustViewBounds(true);
+		adView1.setScaleType(ImageView.ScaleType.FIT_XY);
+		adView1.setImageResource(R.drawable.behind_ad);
+		viewList.add(adView1);
 
-            }
-        });
-    }
+		ImageView adView2 = new ImageView(context);
+		adView2.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
+				WindowManager.LayoutParams.MATCH_PARENT));
+		adView2.setAdjustViewBounds(true);
+		adView2.setScaleType(ImageView.ScaleType.FIT_XY);
+		adView2.setImageResource(R.drawable.ad2);
+		viewList.add(adView2);
 
-    private void initBuildingBroadcast() {
-        buildingBroadcast = (ImageView) view.findViewById(R.id.buildingBroadcast);
-        buildingBroadcast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, RealEstateDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("url", "http://m.fang.com");
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });
-    }
+		dotViews = new ImageView[]{(ImageView) view.findViewById(R.id.dot1), (ImageView) view.findViewById(R.id.dot2)};
+		dotViews[0].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
+
+		buildingViewPager.setAdapter(new ViewPagerAdapter(viewList));
+		buildingViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+			@Override
+			public void onPageScrolled(int i, float v, int i2) {
+
+			}
+
+			@Override
+			public void onPageSelected(int i) {
+				for (int j = 0; j < dotViews.length; j++) {
+					if (i == j) {
+						dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
+					} else {
+						dotViews[j].setImageDrawable(context.getResources().getDrawable(R.drawable.light_gray_dot));
+					}
+				}
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int i) {
+
+			}
+		});
+	}
+
+	private void initBuildingBroadcast() {
+		buildingBroadcast = (ImageView) view.findViewById(R.id.buildingBroadcast);
+		buildingBroadcast.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, RealEstateDetailActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("url", "http://m.fang.com");
+				intent.putExtras(bundle);
+				context.startActivity(intent);
+			}
+		});
+	}
 
 }
