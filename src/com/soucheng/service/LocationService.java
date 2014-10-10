@@ -110,8 +110,8 @@ public class LocationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Notification.Builder builder = new Notification.Builder(this);
-        builder.setLargeIcon(((BitmapDrawable) (getResources().getDrawable(R.drawable.logo2))).getBitmap());
-        builder.setSmallIcon(R.drawable.logo2);
+        builder.setLargeIcon(((BitmapDrawable) (getResources().getDrawable(R.drawable.logo))).getBitmap());
+        builder.setSmallIcon(R.drawable.logo);
         builder.setContentInfo("LocationService is running...");
         Notification notification = builder.build();
         startForeground(0, notification);
