@@ -5,35 +5,50 @@
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@drawable/huachuang">
+             android:background="@drawable/screen_lock">
+    <TextView android:id="@+id/dateView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:textColor="@color/white"
+              android:textSize="18dp"
+              android:layout_marginTop="20dp"/>
+    <TextView android:id="@+id/timeView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:textColor="@color/white"
+              android:textSize="60dp"
+              android:layout_marginTop="40dp"/>
 
     <ImageView
             android:id="@+id/stone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/checkbutton_on_d"
+            android:src="@drawable/stone_n"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="70dp"/>
+            android:layout_marginBottom="39dp"/>
     <ImageView
             android:id="@+id/stonePress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/checkbutton_on"
+            android:src="@drawable/stone_s"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="73dp"
-            android:visibility="gone"/>
+            android:layout_marginBottom="45dp"
+            android:visibility="gone"
+            />
 
     <ImageView
             android:id="@+id/lock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/renew_btn_action_unlock_h"
+            android:src="@drawable/lock_n"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="65dp"
-            android:layout_marginLeft="120dp"/>
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="140dp"/>
     <TextView android:id="@+id/lockGoldView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -41,27 +56,38 @@
               android:textColor="@color/white"
               android:textStyle="bold"
               android:layout_gravity="center_horizontal|bottom"
-              android:layout_marginBottom="50dp"
-              android:layout_marginLeft="120dp"/>
+              android:layout_marginBottom="25dp"
+              android:layout_marginLeft="140dp"/>
     <ImageView
             android:id="@+id/lockSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/progress_icon"
+            android:src="@drawable/stone_s"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="140dp"
+            android:visibility="gone"/>
+    <ImageView
+            android:id="@+id/lockPress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/lock_p"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="140dp"
             android:visibility="gone"/>
     <ImageView
             android:id="@+id/ad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/renew_btn_action_link_h"
+            android:src="@drawable/web_n"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="65dp"
-            android:layout_marginRight="120dp"/>
+            android:layout_marginBottom="45dp"
+            android:layout_marginRight="140dp"
+            />
     <TextView android:id="@+id/adGoldView"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -69,16 +95,26 @@
               android:textColor="@color/white"
               android:textStyle="bold"
               android:layout_gravity="center_horizontal|bottom"
-              android:layout_marginBottom="50dp"
-              android:layout_marginRight="120dp"/>
+              android:layout_marginBottom="25dp"
+              android:layout_marginRight="140dp"/>
     <ImageView
             android:id="@+id/adSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/progress_icon"
+            android:src="@drawable/stone_s"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="40dp"
-            android:layout_marginRight="120dp"
+            android:layout_marginBottom="45dp"
+            android:layout_marginRight="140dp"
+            android:visibility="gone"/>
+    <ImageView
+            android:id="@+id/adPress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/web_p"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="45dp"
+            android:layout_marginRight="140dp"
             android:visibility="gone"/>
 </FrameLayout>
