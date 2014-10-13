@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import com.soucheng.activity.R;
+import com.soucheng.application.MainApplication;
 
 /**
  * @author lichen
@@ -30,6 +31,7 @@ public class PhoneCallDialog extends Dialog {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.phone_call);
 
+
 		Window window = getWindow();
 		window.setGravity(Gravity.LEFT | Gravity.TOP);
 		window.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_bg));
@@ -44,6 +46,8 @@ public class PhoneCallDialog extends Dialog {
 		window.setAttributes(layoutParams);
 
 		phoneAdView = (ImageView) findViewById(R.id.phoneAdView);
+		phoneAdView
+				.setImageBitmap(((MainApplication) context.getApplicationContext()).loadBitmap(R.drawable.huachuang,4));
 		phoneAdView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -51,5 +55,10 @@ public class PhoneCallDialog extends Dialog {
 				cancel();
 			}
 		});
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
 	}
 }

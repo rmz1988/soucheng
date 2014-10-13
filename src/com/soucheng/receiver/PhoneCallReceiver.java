@@ -14,7 +14,8 @@ import com.soucheng.dialog.PhoneCallDialog;
 public class PhoneCallReceiver extends BroadcastReceiver {
 
 	private PhoneCallDialog dialog;
-	private static boolean hasShown;
+
+	private static boolean hasListen;
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -30,8 +31,10 @@ public class PhoneCallReceiver extends BroadcastReceiver {
 
 		TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		//设置一个监听器
-		manager.listen(new SouchengPhoneStateListener(context), PhoneStateListener.LISTEN_CALL_STATE);
-
+		if (!hasListen) {
+			manager.listen(new SouchengPhoneStateListener(context), PhoneStateListener.LISTEN_CALL_STATE);
+			hasListen = true;
+		}
 
 	}
 
@@ -47,22 +50,24 @@ public class PhoneCallReceiver extends BroadcastReceiver {
 		public void onCallStateChanged(int state, String incomingNumber) {
 			super.onCallStateChanged(state, incomingNumber);
 			switch (state) {
-	            /*case TelephonyManager.CALL_STATE_RINGING:
-                    dialog = new PhoneCallDialog(context);
+			    /*case TelephonyManager.CALL_STATE_RINGING:
+			        dialog = new PhoneCallDialog(context);
                     dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
                     dialog.show();
                     break;*/
 				case TelephonyManager.CALL_STATE_IDLE:
+
 					if (dialog == null) {
 						dialog = new PhoneCallDialog(context);
 					}
 
-					if(!dialog.isShowing() && !hasShown){
+					if (!dialog.isShowing()) {
 						dialog = new PhoneCallDialog(context);
 						dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 						dialog.show();
-						hasShown = true;
+						dialog = null;
 					}
+
 					break;
 			}
 		}

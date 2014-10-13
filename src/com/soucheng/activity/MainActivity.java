@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -147,24 +148,32 @@ public class MainActivity extends Activity {
 	 */
 	private void initPageView() {
 		pageView = (ViewPager) findViewById(R.id.pageView);
-		LayoutInflater inflater = LayoutInflater.from(this);
+		/*LayoutInflater inflater = LayoutInflater.from(this);
 		View homeView = inflater.inflate(R.layout.home, null);
 		View realEstateView = inflater.inflate(R.layout.real_estate, null);
 		View readView = inflater.inflate(R.layout.read, null);
 		View behindView = inflater.inflate(R.layout.behind, null);
-		View moreView = inflater.inflate(R.layout.more, null);
-		btnManager.addViewButton(homeView.getId(), homeBtn);
-		btnManager.addViewButton(realEstateView.getId(), realEstateBtn);
-		btnManager.addViewButton(readView.getId(), readBtn);
-		btnManager.addViewButton(behindView.getId(), behindBtn);
-		btnManager.addViewButton(moreView.getId(), moreBtn);
+		View moreView = inflater.inflate(R.layout.more, null);*/
+
+		btnManager.addViewButton(0, homeBtn);
+		btnManager.addViewButton(1, realEstateBtn);
+		btnManager.addViewButton(2, readBtn);
+		btnManager.addViewButton(3, behindBtn);
+		btnManager.addViewButton(4, moreBtn);
 		final List<View> viewList = new ArrayList<>();
-		viewList.add(homeView);
-		viewList.add(realEstateView);
-		viewList.add(readView);
-		viewList.add(behindView);
-		viewList.add(moreView);
-		pageView.setAdapter(new ViewPagerAdapter(viewList));
+		viewList.add(null);
+		viewList.add(null);
+		viewList.add(null);
+		viewList.add(null);
+		viewList.add(null);
+		List<Integer> layoutList = new ArrayList<>();
+		layoutList.add(R.layout.home);
+		layoutList.add(R.layout.real_estate);
+		layoutList.add(R.layout.read);
+		layoutList.add(R.layout.behind);
+		layoutList.add(R.layout.more);
+
+		pageView.setAdapter(new ViewPagerAdapter(this, viewList, layoutList));
 		pageView.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 			@Override
@@ -173,7 +182,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onPageSelected(int position) {
-				btnManager.viewSelected(viewList.get(position).getId());
+				btnManager.viewSelected(position);
 			}
 
 			@Override
@@ -181,7 +190,7 @@ public class MainActivity extends Activity {
 
 			}
 		});
-
+/*
 		homeViewLoader = new HomeViewLoader(this, homeView);
 		realEstateViewLoader = new RealEstateViewLoader(this, realEstateView);
 		readViewLoader = new ReadViewLoader(this, readView);
@@ -191,7 +200,7 @@ public class MainActivity extends Activity {
 		realEstateViewLoader.load();
 		readViewLoader.load();
 		behindViewLoader.load();
-		moreViewLoader.load();
+		moreViewLoader.load();*/
 	}
 
 	/**
@@ -209,13 +218,23 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			pageView.removeAllViews();
+			System.gc();
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 
 	@Override
 	public void onBackPressed() {
+		pageView.removeAllViews();
+		System.gc();
 		super.onBackPressed();
 		overridePendingTransition(0, R.anim.left_out);
-	    /*if (canExit) {
-            finish();
+		/*if (canExit) {
+		    finish();
         } else {
             canExit = true;
             Toast.makeText(this, R.string.exit_tip, Toast.LENGTH_SHORT).show();

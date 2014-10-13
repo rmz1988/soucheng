@@ -58,7 +58,7 @@ public class WelcomeActivity extends Activity {
         dotViews = new ImageView[]{(ImageView) findViewById(R.id.dot1), (ImageView) findViewById(R.id.dot2), (ImageView) findViewById(R.id.dot3), (ImageView) findViewById(R.id.dot4)};
         dotViews[0].setImageDrawable(getResources().getDrawable(R.drawable.dark_gray_dot));
 
-        viewPager.setAdapter(new ViewPagerAdapter(viewList));
+        viewPager.setAdapter(new ViewPagerAdapter(this,viewList,null));
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override

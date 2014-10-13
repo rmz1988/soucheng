@@ -11,6 +11,7 @@ import com.soucheng.activity.R;
 import com.soucheng.activity.RealEstateDetailActivity;
 import com.soucheng.activity.SearchActivity;
 import com.soucheng.activity.adapter.ViewPagerAdapter;
+import com.soucheng.application.MainApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class RealEstateViewLoader extends ViewLoader {
 	@Override
 	public void load() {
 	   /* locationSpinner = (Spinner) view.findViewById(R.id.locationSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.locations, R.layout.location_spinner_item);
+	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context, R.array.locations, R.layout.location_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter);*/
 
@@ -147,7 +148,7 @@ public class RealEstateViewLoader extends ViewLoader {
 				WindowManager.LayoutParams.MATCH_PARENT));
 		adView1.setAdjustViewBounds(true);
 		adView1.setScaleType(ImageView.ScaleType.FIT_XY);
-		adView1.setImageResource(R.drawable.behind_ad);
+		adView1.setImageBitmap(((MainApplication) context.getApplicationContext()).loadBitmap(R.drawable.behind_ad,2));
 		viewList.add(adView1);
 
 		ImageView adView2 = new ImageView(context);
@@ -161,7 +162,7 @@ public class RealEstateViewLoader extends ViewLoader {
 		dotViews = new ImageView[]{(ImageView) view.findViewById(R.id.dot1), (ImageView) view.findViewById(R.id.dot2)};
 		dotViews[0].setImageDrawable(context.getResources().getDrawable(R.drawable.dark_gray_dot));
 
-		buildingViewPager.setAdapter(new ViewPagerAdapter(viewList));
+		buildingViewPager.setAdapter(new ViewPagerAdapter(context,viewList,null));
 		buildingViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 			@Override

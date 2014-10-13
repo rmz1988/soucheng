@@ -192,7 +192,7 @@ public class HomeViewLoader extends ViewLoader {
 		adView4.setImageResource(R.drawable.ad4);
 		viewList.add(adView4);
 
-		adViewPager.setAdapter(new ViewPagerAdapter(viewList));
+		adViewPager.setAdapter(new ViewPagerAdapter(context, viewList, null));
 		adViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 			private int lastValue = -1;
