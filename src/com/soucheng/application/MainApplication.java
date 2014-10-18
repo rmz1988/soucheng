@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import com.soucheng.activity.ScreenLockActivity;
 import com.soucheng.service.LocationService;
 import com.soucheng.service.ScreenLockService;
+import com.soucheng.utils.LocationUtils;
 import com.soucheng.vo.Address;
 import com.soucheng.vo.User;
 
@@ -64,6 +65,9 @@ public class MainApplication extends Application {
         List<Address> targetAddressList = new ArrayList<>();
         try {
             List<android.location.Address> addressList = geocoder.getFromLocationName(name, 20);
+            if (null == addressList || addressList.isEmpty()) {
+                return LocationUtils.getFromLocationName(name);
+            }
             Address address;
             for (android.location.Address addr : addressList) {
                 address = new Address();
@@ -76,10 +80,10 @@ public class MainApplication extends Application {
                 address.setCanNotify("1");
                 targetAddressList.add(address);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.e("MainApplication", "Query address by name failed", e);
+            targetAddressList = LocationUtils.getFromLocationName(name);
         }
-
         return targetAddressList;
     }
 
