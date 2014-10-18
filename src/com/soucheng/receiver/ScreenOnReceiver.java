@@ -4,10 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.soucheng.application.MainApplication;
-import com.soucheng.service.LocationService;
-import com.soucheng.service.ScreenLockService;
 
 /**
+ * 屏幕点亮事件接收器
  * Created by Riemannh on 2014/10/18.
  */
 public class ScreenOnReceiver extends BroadcastReceiver {

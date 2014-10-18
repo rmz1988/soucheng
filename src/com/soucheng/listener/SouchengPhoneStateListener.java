@@ -7,6 +7,10 @@ import android.view.WindowManager;
 import com.soucheng.application.MainApplication;
 import com.soucheng.dialog.PhoneCallDialog;
 
+
+/**
+ * 打电话事件监听器
+ */
 public class SouchengPhoneStateListener extends PhoneStateListener {
 
     private Context context;

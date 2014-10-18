@@ -8,6 +8,7 @@ import com.soucheng.application.MainApplication;
 import com.soucheng.service.ScreenLockService;
 
 /**
+ * 屏幕关闭事件接收器
  * Created by Riemannh on 2014/10/18.
  */
 public class ScreenOffReceiver extends BroadcastReceiver {
