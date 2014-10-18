@@ -3,14 +3,14 @@ package com.soucheng.service;
 import android.app.Notification;
 import android.app.Service;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.IBinder;
 import com.soucheng.activity.R;
-import com.soucheng.activity.ScreenLockActivity;
 import com.soucheng.application.MainApplication;
+import com.soucheng.receiver.ScreenOffReceiver;
+import com.soucheng.receiver.ScreenOnReceiver;
 
 /**
  * @author lichen
@@ -18,33 +18,8 @@ import com.soucheng.application.MainApplication;
 public class ScreenLockService extends Service {
 
     private MainApplication application;
-    private BroadcastReceiver screenOnReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (Intent.ACTION_SCREEN_ON.equals(intent.getAction()) ||
-                    Intent.ACTION_USER_PRESENT.equals(intent.getAction())) {
-                //解锁屏幕
-                application.disableKeyguard();
-            }
-        }
-    };
-
-    private BroadcastReceiver screenOffReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction()) && !application.isPhoneInUse()) {
-                //显示自定义锁屏界面
-                Intent lockIntent = new Intent(ScreenLockService.this, ScreenLockActivity.class);
-                lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (null == application.getScreenLockActivity() || application.getScreenLockActivity().isFinishing()) {
-                    startActivity(lockIntent);
-                }
-            }
-        }
-    };
-
+    private ScreenOnReceiver screenOnReceiver = new ScreenOnReceiver();
+    private BroadcastReceiver screenOffReceiver = new ScreenOffReceiver();
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -54,7 +29,7 @@ public class ScreenLockService extends Service {
     public void onCreate() {
         super.onCreate();
         application = (MainApplication) getApplication();
-
+        application.setScreenLockService(this);
         IntentFilter screenOnIntentFilter = new IntentFilter();
         screenOnIntentFilter.addAction(Intent.ACTION_SCREEN_ON);
         screenOnIntentFilter.addAction(Intent.ACTION_USER_PRESENT);

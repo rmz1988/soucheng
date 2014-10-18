@@ -47,6 +47,7 @@ public class LocationService extends Service {
     public void onCreate() {
         super.onCreate();
         application = (MainApplication) getApplication();
+        application.setLocationService(this);
         dbAdapter = new DbAdapter(this);
 
         final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);

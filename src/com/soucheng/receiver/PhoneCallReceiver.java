@@ -8,14 +8,12 @@ import android.telephony.TelephonyManager;
 import android.view.WindowManager;
 import com.soucheng.application.MainApplication;
 import com.soucheng.dialog.PhoneCallDialog;
+import com.soucheng.listener.SouchengPhoneStateListener;
 
 /**
  * @author lichen
  */
 public class PhoneCallReceiver extends BroadcastReceiver {
-
-    private PhoneCallDialog dialog;
-    private MainApplication application = null;
     private static boolean hasListen;
 
     @Override
@@ -37,42 +35,5 @@ public class PhoneCallReceiver extends BroadcastReceiver {
             hasListen = true;
         }
 
-    }
-
-    private class SouchengPhoneStateListener extends PhoneStateListener {
-
-        private Context context;
-
-        public SouchengPhoneStateListener(Context context) {
-            this.context = context;
-            application = (MainApplication) context.getApplicationContext();
-        }
-
-        @Override
-        public void onCallStateChanged(int state, String incomingNumber) {
-            super.onCallStateChanged(state, incomingNumber);
-            switch (state) {
-                case TelephonyManager.CALL_STATE_RINGING:
-//                    dialog = new PhoneCallDialog(context);
-//                    dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-//                    dialog.show();
-                    application.getScreenLockActivity().stop();
-                    break;
-                case TelephonyManager.CALL_STATE_IDLE:
-
-                    if (dialog == null) {
-                        dialog = new PhoneCallDialog(context);
-                    }
-
-                    if (!dialog.isShowing()) {
-                        dialog = new PhoneCallDialog(context);
-                        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-                        dialog.show();
-                        dialog = null;
-                    }
-
-                    break;
-            }
-        }
     }
 }
