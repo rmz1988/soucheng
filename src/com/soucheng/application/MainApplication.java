@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import com.soucheng.activity.R;
+import com.soucheng.activity.ScreenLockActivity;
 import com.soucheng.vo.Address;
 import com.soucheng.vo.User;
 
@@ -35,6 +36,7 @@ public class MainApplication extends Application {
 
 	private User loginUser;
 	private Location currentLocation;
+    private ScreenLockActivity screenLockActivity;
 
 	@Override
 	public void onCreate() {
@@ -222,4 +224,12 @@ public class MainApplication extends Application {
 
 		System.gc();
 	}
+
+    public ScreenLockActivity getScreenLockActivity() {
+        return screenLockActivity;
+    }
+
+    public void setScreenLockActivity(ScreenLockActivity screenLockActivity) {
+        this.screenLockActivity = screenLockActivity;
+    }
 }

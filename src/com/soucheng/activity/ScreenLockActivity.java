@@ -1,6 +1,7 @@
 package com.soucheng.activity;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -223,6 +224,7 @@ public class ScreenLockActivity extends Activity implements View.OnTouchListener
 	private void init(View view) {
 		dbAdapter = new DbAdapter(this);
 		application = (MainApplication) getApplication();
+        application.setScreenLockActivity(this);
 		stone = (ImageView) view.findViewById(R.id.stone);
 		stone.setImageBitmap(application.loadBitmap(R.drawable.stone_n, 0));
 		stonePress = (ImageView) view.findViewById(R.id.stonePress);

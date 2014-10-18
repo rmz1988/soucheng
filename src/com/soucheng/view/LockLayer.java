@@ -44,7 +44,7 @@ public class LockLayer {
     }
 
     public void unlock() {
-        if (mWindowManager != null) {
+        if (mWindowManager != null && mActivty != null) {
             mWindowManager.removeView(mLockView);
         }
 
