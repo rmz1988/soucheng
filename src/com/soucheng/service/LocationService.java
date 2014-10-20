@@ -131,6 +131,7 @@ public class LocationService extends Service {
         intent.setAction("restart location service");
         sendBroadcast(intent);
         stopForeground(true);
+        application.setLocationService(null);
         super.onDestroy();
     }
 

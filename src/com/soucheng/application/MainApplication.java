@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import com.soucheng.activity.ScreenLockActivity;
+import com.soucheng.activity.PhoneCallActivity;
 import com.soucheng.service.LocationService;
 import com.soucheng.service.ScreenLockService;
 import com.soucheng.utils.LocationUtils;
@@ -41,6 +42,7 @@ public class MainApplication extends Application {
     private ScreenLockActivity screenLockActivity;
     private ScreenLockService screenLockService;
     private LocationService locationService;
+    private PhoneCallActivity phoneCallActivity;
 
     @Override
     public void onCreate() {
@@ -255,5 +257,13 @@ public class MainApplication extends Application {
 
     public void setLocationService(LocationService locationService) {
         this.locationService = locationService;
+    }
+
+    public PhoneCallActivity getPhoneCallActivity() {
+        return phoneCallActivity;
+    }
+
+    public void setPhoneCallActivity(PhoneCallActivity phoneCallActivity) {
+        this.phoneCallActivity = phoneCallActivity;
     }
 }

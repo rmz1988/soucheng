@@ -18,10 +18,17 @@ public class PhoneCallReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        MainApplication application = (MainApplication) context.getApplicationContext();
         Intent serviceIntent = new Intent(context, ScreenLockService.class);
+        if (application.getScreenLockService() != null) {
+            context.stopService(serviceIntent);
+        }
         context.startService(serviceIntent);
 
         Intent locationIntent = new Intent(context, LocationService.class);
+        if (application.getLocationService() != null) {
+            context.stopService(locationIntent);
+        }
         context.startService(locationIntent);
         TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         //设置一个监听器

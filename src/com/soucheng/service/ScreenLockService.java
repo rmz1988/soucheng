@@ -73,6 +73,7 @@ public class ScreenLockService extends Service {
         intent.setAction("restart.screen.lock.service");
         sendBroadcast(intent);
         stopForeground(true);
+        application.setLocationService(null);
         super.onDestroy();
     }
 
