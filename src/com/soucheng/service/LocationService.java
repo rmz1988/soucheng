@@ -127,6 +127,9 @@ public class LocationService extends Service {
 
     @Override
     public void onDestroy() {
+        Intent intent = new Intent();
+        intent.setAction("restart location service");
+        sendBroadcast(intent);
         stopForeground(true);
         super.onDestroy();
     }

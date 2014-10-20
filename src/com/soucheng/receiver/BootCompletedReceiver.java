@@ -20,6 +20,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
             Intent screenLockServiceIntent = new Intent(context, ScreenLockService.class);
             context.startService(screenLockServiceIntent);
+//
+//            Intent TimeTickServiceIntent = new Intent(context, TimeTickService.class);
+//            context.startService(TimeTickServiceIntent);
         }
     }
 }

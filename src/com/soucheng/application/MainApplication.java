@@ -168,6 +168,7 @@ public class MainApplication extends Application {
      */
     public boolean isServiceWork(String serviceFullName) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+
         List<ActivityManager.RunningServiceInfo> runningServiceInfoList = manager.getRunningServices(500);
         for (ActivityManager.RunningServiceInfo runningServiceInfo : runningServiceInfoList) {
             if (runningServiceInfo.service.getClassName().equals(serviceFullName)) {

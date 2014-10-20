@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.view.WindowManager;
 import com.soucheng.application.MainApplication;
-import com.soucheng.dialog.PhoneCallDialog;
 import com.soucheng.listener.SouchengPhoneStateListener;
+import com.soucheng.service.LocationService;
+import com.soucheng.service.ScreenLockService;
 
 /**
  * @author lichen
@@ -18,16 +18,11 @@ public class PhoneCallReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-       /* if (dialog == null) {
-            dialog = new PhoneCallDialog(context);
-        }
-        if (!dialog.isShowing() && !hasShown) {
-            dialog = new PhoneCallDialog(context);
-            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-            dialog.show();
-            hasShown = true;
-        }*/
+        Intent serviceIntent = new Intent(context, ScreenLockService.class);
+        context.startService(serviceIntent);
 
+        Intent locationIntent = new Intent(context, LocationService.class);
+        context.startService(locationIntent);
         TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         //设置一个监听器
         if (!hasListen) {

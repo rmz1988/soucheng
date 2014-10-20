@@ -38,14 +38,22 @@ public class LockLayer {
 
     public void lock() {
         if (mLockView != null) {
-            mWindowManager.addView(mLockView, mLockViewLayoutParams);
+            try {
+                mWindowManager.addView(mLockView, mLockViewLayoutParams);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
     public void unlock() {
         if (mWindowManager != null && mActivty != null) {
-            mWindowManager.removeView(mLockView);
+            try {
+                mWindowManager.removeView(mLockView);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

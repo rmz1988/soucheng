@@ -2,7 +2,6 @@ package com.soucheng.service;
 
 import android.app.Notification;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,8 +17,11 @@ import com.soucheng.receiver.ScreenOnReceiver;
 public class ScreenLockService extends Service {
 
     private MainApplication application;
+    private boolean isScreenOnReceiverRegister = false;
+    private boolean isScreenOffReceiverRegister = false;
     private ScreenOnReceiver screenOnReceiver = new ScreenOnReceiver();
-    private BroadcastReceiver screenOffReceiver = new ScreenOffReceiver();
+    private ScreenOffReceiver screenOffReceiver = new ScreenOffReceiver();
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -30,12 +32,18 @@ public class ScreenLockService extends Service {
         super.onCreate();
         application = (MainApplication) getApplication();
         application.setScreenLockService(this);
+        registerReceiver();
+    }
+
+    public void registerReceiver() {
         IntentFilter screenOnIntentFilter = new IntentFilter();
         screenOnIntentFilter.addAction(Intent.ACTION_SCREEN_ON);
-        screenOnIntentFilter.addAction(Intent.ACTION_USER_PRESENT);
         registerReceiver(screenOnReceiver, screenOnIntentFilter);
+        isScreenOnReceiverRegister = true;
         IntentFilter screenOffIntentFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        screenOnIntentFilter.addAction(Intent.ACTION_USER_PRESENT);
         registerReceiver(screenOffReceiver, screenOffIntentFilter);
+        isScreenOffReceiverRegister = true;
     }
 
 
@@ -53,8 +61,17 @@ public class ScreenLockService extends Service {
 
     @Override
     public void onDestroy() {
-        unregisterReceiver(screenOnReceiver);
-        unregisterReceiver(screenOffReceiver);
+        if (isScreenOnReceiverRegister) {
+            unregisterReceiver(screenOnReceiver);
+            isScreenOnReceiverRegister = false;
+        }
+        if (isScreenOffReceiverRegister) {
+            unregisterReceiver(screenOffReceiver);
+            isScreenOffReceiverRegister = false;
+        }
+        Intent intent = new Intent();
+        intent.setAction("restart.screen.lock.service");
+        sendBroadcast(intent);
         stopForeground(true);
         super.onDestroy();
     }
